@@ -70,15 +70,14 @@ export default function Register() {
 
             <Text></Text>
             <DropDownPicker
+            placeholder="Gênero"
+            placeholderTextColor={'#fff'}
             open={open}
             value={value}
             items={items}
             setOpen={setOpen}
             setValue={setValue}
             setItems={setItems}
-            onChangeValue={(value) =>{
-              console.warn(value)
-            }}
             style = {StyleRegister.picker}
             />
 
@@ -87,8 +86,7 @@ export default function Register() {
           
           
           </View>
-      
-          <Text>meio</Text>
+    
         </View>
 
         <View style={StyleRegister.baixo}>

@@ -11,7 +11,6 @@ import { useFonts } from "expo-font";
 import MainStyle from "../components/StyleLogin";
 import Checkbox from "expo-checkbox";
 import { Ionicons } from "@expo/vector-icons";
-import { emailLogin } from "../auth/emailAuth";
 
 export default function Login() {
   const nav = useNavigation();

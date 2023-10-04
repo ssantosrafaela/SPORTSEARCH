@@ -18,7 +18,8 @@ export default StyleSheet.create({
     backgroundColor: 'green',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    zIndex: -1
   },
   titulo: {
     fontSize: 50,
@@ -42,7 +43,9 @@ export default StyleSheet.create({
 
   },
   picker:{
-    backgroundColor: "yellow",
+    backgroundColor: "#1D2F4D",
+    borderColor: "#EF3006",
+    color: 'white',
     justifyContent: "center",
     alignItems: "center",
     width: '60%',
