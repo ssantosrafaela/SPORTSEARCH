@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "SportSearch",
+    "slug": "SportSearch",
+      "assetBundlePatterns": [
+        "assets/*"
+      ]
+    }
+    
+  }
+

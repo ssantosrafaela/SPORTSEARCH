@@ -1,0 +1,135 @@
+import { StyleSheet } from "react-native";
+
+export default StyleSheet.create({
+  container:{
+    flex: 1,
+  },
+  cima: {
+    flex: 1.6,
+    backgroundColor: "#1D2F4D",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 50,
+  },
+  meio: {
+    flex: 1,
+    backgroundColor: "#1D2F4D",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: 130,
+  },
+  baixo: {
+    flex: 1,
+    backgroundColor: "#1D2F4D",
+    alignItems: "center",
+  },
+  titulo: {
+    fontSize: 70,
+    fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
+    color: "#fff",
+    textShadowColor: "#EF3006",
+    textShadowOffset: { width: 4, height: 3 },
+    textShadowRadius: 4,
+  },
+  subtitulo: {
+    color: "white",
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+    marginTop: 10,
+  },
+  input: {
+    borderWidth: 1,
+    width: 250,
+    height: 30,
+    borderRadius: 10,
+    borderColor: "#EF3006",
+    marginBottom: 10,
+    paddingLeft: 5,
+    color: '#fff',
+  },
+ inputArea:{
+  flexDirection: 'row',
+  width: 250,
+  backgroundColor: "#1D2F4D",
+  borderWidth: 1,
+  borderRadius: 10,
+  borderColor: "#EF3006",
+  height: 30,
+  alignItems: 'center'
+ },
+ inputTeste:{
+  width: "85%",
+  height: 50,
+  color: '#fff',
+  padding: 8,
+  fontSize: 18,
+ },
+ icon:{
+  width: '15%',
+  height: 50,
+  justifyContent: 'center',
+  alignItems: 'center'
+ },
+  botaoEntrar:{
+    borderWidth: 1,
+    borderRadius: 5,
+    width: 45,
+    height: 20,
+    borderColor: "#EF3006",
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textoBotaoEntrar:{
+    color: "#EF3006",
+  },
+  botaoEnd:{
+    position: 'absolute',
+    top: 120,
+    right: 65
+  },
+  botaoCadastre:{
+    borderWidth: 1,
+    borderRadius: 5,
+    width: 90,
+    height: 25,
+    borderColor: "#EF3006",
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textoBotaoCadastre:{
+    color: "#EF3006",
+    fontSize: 16,
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginRight: 95,
+    marginTop: 10,
+  },
+  checkbox: {
+    alignSelf: "center",
+    height: 15,
+    width: 15,
+    borderColor: "#EF3006",
+    borderRadius: 5,
+    borderWidth: 1.4,
+  },
+  checkboxText:{
+    color: '#fff',
+    fontSize: 15,
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+  },
+  textoBaixo:{
+    marginBottom: 20,
+    color: '#fff',
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+    fontSize: 17,
+    textShadowOffset: { width: 4, height: 4 },
+  },
+});
