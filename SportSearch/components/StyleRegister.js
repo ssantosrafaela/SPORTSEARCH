@@ -6,6 +6,7 @@ export default StyleSheet.create({
     backgroundColor: "#1D2F4D",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: '50px'
   },
   meio: {
     flex: 1.5,
@@ -15,7 +16,7 @@ export default StyleSheet.create({
   },
   baixo: {
     flex: 1,
-    backgroundColor: 'green',
+    backgroundColor: '#1D2F4D',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -48,7 +49,8 @@ export default StyleSheet.create({
     color: 'white',
     justifyContent: "center",
     alignItems: "center",
-    width: '60%',
-    height: '5%'
+    width: '30%',
+    height: "5px"
+
   }
 });

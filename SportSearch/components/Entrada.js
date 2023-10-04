@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     box: {
       paddingLeft: 5,
       marginBottom: 5,
-      width: 210,
-      height: 30,
+      width: 230,
+      height: 50,
       borderColor: "#EF3006",
       borderWidth: 1,
       borderRadius: 10,
@@ -29,5 +29,6 @@ const styles = StyleSheet.create({
     },
     text: {
       color: "white",
+
     },
   });

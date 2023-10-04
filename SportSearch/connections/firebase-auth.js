@@ -5,7 +5,6 @@ import {app} from "./firebase-app"
 //import { getAnalytics } from "firebase/analytics";
 import { initializeAuth, getReactNativePersistence, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
-import { addUserFirestore } from "./firebase-store";
 
 //MANTÉM A SESSAO MESMO APÓS FECHAR E ABRIR O APP
 //AQUI PARA QUEM TRABALHA SEM SER O REACT NATIVE, TERÁ QUE VER OUTRA FORMA
@@ -33,7 +32,7 @@ const createUser = async (email, pass, name) => {
         });
 
     //CHAMA FUNCAO EM firebase-store
-    addUserFirestore(userCredential, "Leticia Pedrinho", "123.456.789-00","53 9991730000", "27/07/1996")
+   // addUserFirestore(userCredential, "Leticia Pedrinho", "123.456.789-00","53 9991730000", "27/07/1996")
 
     // updateProfile(userCredential.user, {
     //     displayName: name

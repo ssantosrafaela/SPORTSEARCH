@@ -29,7 +29,6 @@ export default function Register() {
   const [ items, setItems] = useState([
     { label: "Feminino", value: "Feminino" },
     { label: "Masculino", value: "Maculino" },
-    { label: "Não-Binário", value: "Não-Binário" }
   ]);
 
   const [fontsLoaded] = useFonts({
@@ -68,10 +67,14 @@ export default function Register() {
               value={textTelefone}
             />
 
-            <Text></Text>
+            <Text>Selecione seu gênero</Text>
             <DropDownPicker
             placeholder="Gênero"
             placeholderTextColor={'#fff'}
+            placeholderStyle={{
+              color: 'white',
+              //fontWeight: "bold",
+            }}
             open={open}
             value={value}
             items={items}
@@ -80,6 +83,7 @@ export default function Register() {
             setItems={setItems}
             style = {StyleRegister.picker}
             />
+
 
           </View>
           <View>

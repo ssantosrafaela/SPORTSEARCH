@@ -11,6 +11,12 @@ import { useFonts } from "expo-font";
 import MainStyle from "../components/StyleLogin";
 import Checkbox from "expo-checkbox";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  emailLogin,
+  auth,
+  createUser,
+  signOutFirebase,
+} from "../connections/firebase-auth";
 
 export default function Login() {
   const nav = useNavigation();
@@ -20,11 +26,31 @@ export default function Login() {
     "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
 
-  const [textUser, setText] = useState("");
+  const [textUser, setUser] = useState("");
   const [textPassword, setPassword] = useState("");
   const [isSelected, setSelection] = useState(false);
-  const [input, setInput] = useState("");
   const [hidePass, setHidePass] = useState(true);
+
+  const tryLogin = async () => {
+    const userCredential = await emailLogin(textUser, textPassword);
+    if (userCredential) {
+      console.log(userCredential.user);
+   //   router.replace("register");
+    } else {
+      alert("erro");
+    }
+  };
+
+  const tryCreateUser = async () => {
+    createUser(textUser, textPassword, "Nome da pessoa");
+  };
+
+  const trySignOut = async () => {
+    signOutFirebase();
+  };
+  const printAuth = () => {
+    console.log(auth.currentUser);
+  };
 
   if (fontsLoaded) {
     return (
@@ -41,7 +67,7 @@ export default function Login() {
           <View style={MainStyle.meio}>
             <TextInput
               style={MainStyle.input}
-              onChangeText={(e) => setText(e)}
+              onChangeText={(e) => setUser(e)}
               value={textUser}
               placeholder="Insira seu usuário ou e-mail"
               placeholderTextColor={"#fff"}
@@ -52,8 +78,8 @@ export default function Login() {
                 style={MainStyle.inputTeste}
                 placeholder="Insira sua senha"
                 placeholderTextColor={"#fff"}
-                value={input}
-                onChangeText={(texto) => setInput(texto)}
+                value={textPassword}
+                onChangeText={(t) => setPassword(t)}
                 secureTextEntry={hidePass}
               />
               <TouchableOpacity
@@ -83,13 +109,24 @@ export default function Login() {
             <View style={MainStyle.botaoEnd}>
               <TouchableOpacity
                 style={MainStyle.botaoEntrar}
-                onPress={() =>{ 
-                  nav.navigate("Register")
-                emailLogin(textUser,input)
-              console.log(textUser, input)}}
+                onPress={() => {
+                 // nav.navigate("Register");
+                  tryLogin()
+                }}
               >
                 <Text style={MainStyle.textoBotaoEntrar}>Entrar</Text>
               </TouchableOpacity>
+
+              <TouchableOpacity
+                style={MainStyle.botaoEntrar}
+                onPress={() => {
+                  nav.navigate("Register");
+                  trySignOut()
+                }}
+              >
+                <Text style={MainStyle.textoBotaoEntrar}>sair</Text>
+              </TouchableOpacity>
+
             </View>
           </View>
           <View style={MainStyle.baixo}>

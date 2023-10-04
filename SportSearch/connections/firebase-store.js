@@ -19,17 +19,17 @@ const addDogFirebase = async (dogNome, dogRaca, dogPeso) => {
 }
 
 //FUNCAO PARA ADD USUARIO NO FIRESTORE (BANCO DE DADOS DO FIREBASE)
-const addUserFirestore = async (userCredential, nome, cpf, telefone, dataNascimento ) => {
-    const uid = auth.currentUser.uid;
-    const data = {
-        name : nome,
-        cpf: cpf,
-        phone: telefone,
-        birth: dataNascimento
-    }
-    //NESSE CASO, A CHAVE DO DOCUMENTO IGUAL AO USER ID (UID)
-    await setDoc(doc(db, "users", uid), data);
-}
+// const addUserFirestore = async (userCredential, nome, cpf, telefone, dataNascimento ) => {
+//     const uid = auth.currentUser.uid;
+//     const data = {
+//         name : nome,
+//         cpf: cpf,
+//         phone: telefone,
+//         birth: dataNascimento
+//     }
+//     //NESSE CASO, A CHAVE DO DOCUMENTO IGUAL AO USER ID (UID)
+//     await setDoc(doc(db, "users", uid), data);
+// }
 
 //EXPORTA AS FUNCOES
-export {addDogFirebase, addUserFirestore}
+export {addDogFirebase}
