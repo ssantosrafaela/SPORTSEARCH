@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
   },
   cima: {
@@ -46,60 +46,60 @@ export default StyleSheet.create({
     borderColor: "#EF3006",
     marginBottom: 10,
     paddingLeft: 5,
-    color: '#fff',
+    color: "#fff",
   },
- inputArea:{
-  flexDirection: 'row',
-  width: 250,
-  backgroundColor: "#1D2F4D",
-  borderWidth: 1,
-  borderRadius: 10,
-  borderColor: "#EF3006",
-  height: 30,
-  alignItems: 'center'
- },
- inputTeste:{
-  width: "85%",
-  height: 50,
-  color: '#fff',
-  padding: 8,
-  fontSize: 18,
- },
- icon:{
-  width: '15%',
-  height: 50,
-  justifyContent: 'center',
-  alignItems: 'center'
- },
-  botaoEntrar:{
+  inputArea: {
+    flexDirection: "row",
+    width: 250,
+    backgroundColor: "#1D2F4D",
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "#EF3006",
+    height: 30,
+    alignItems: "center",
+  },
+  inputTeste: {
+    width: "85%",
+    height: 50,
+    color: "#fff",
+    padding: 8,
+    fontSize: 18,
+  },
+  icon: {
+    width: "15%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  botaoEntrar: {
     borderWidth: 1,
     borderRadius: 5,
     width: 45,
     height: 20,
     borderColor: "#EF3006",
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  textoBotaoEntrar:{
+  textoBotaoEntrar: {
     color: "#EF3006",
   },
-  botaoEnd:{
-    position: 'absolute',
+  botaoEnd: {
+    position: "absolute",
     top: 120,
-    right: 65
+    right: 65,
   },
-  botaoCadastre:{
+  botaoCadastre: {
     borderWidth: 1,
     borderRadius: 5,
     width: 90,
     height: 25,
     borderColor: "#EF3006",
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
-  textoBotaoCadastre:{
+  textoBotaoCadastre: {
     color: "#EF3006",
     fontSize: 16,
   },
@@ -116,16 +116,16 @@ export default StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1.4,
   },
-  checkboxText:{
-    color: '#fff',
+  checkboxText: {
+    color: "#fff",
     fontSize: 15,
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
     textShadowRadius: 4,
   },
-  textoBaixo:{
+  textoBaixo: {
     marginBottom: 20,
-    color: '#fff',
+    color: "#fff",
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
     textShadowRadius: 4,

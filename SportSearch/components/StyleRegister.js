@@ -1,26 +1,30 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-     cima: {
+  container:{
+    flex: 1,
+    backgroundColor: "#1D2F4D",
+  },
+  cima: {
     flex: 0.8,
     backgroundColor: "#1D2F4D",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: '50px'
+    marginTop: 50,
   },
   meio: {
     flex: 1.5,
-    backgroundColor: '#1D2F4D',
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: "#1D2F4D",
+    justifyContent: "center",
+    alignItems: "center",
   },
   baixo: {
     flex: 1,
-    backgroundColor: '#1D2F4D',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    zIndex: -1
+    backgroundColor: "#1D2F4D",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    zIndex: -1,
   },
   titulo: {
     fontSize: 50,
@@ -40,17 +44,17 @@ export default StyleSheet.create({
   dadosNome: {
     //flexDirection: 'row'
   },
-  botaoEntrar:{
-
-  },
-  picker:{
+  botaoEntrar: {},
+  picker: {
     backgroundColor: "#1D2F4D",
     borderColor: "#EF3006",
-    color: 'white',
+    color: "white",
     justifyContent: "center",
     alignItems: "center",
-    width: '30%',
-    height: "5px"
-
-  }
+    width: "30%",
+    height: 5,
+  },
+  text: {
+    color: "white",
+  },
 });

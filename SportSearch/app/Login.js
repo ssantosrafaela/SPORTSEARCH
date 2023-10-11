@@ -17,6 +17,7 @@ import {
   createUser,
   signOutFirebase,
 } from "../connections/firebase-auth";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function Login() {
   const nav = useNavigation();
@@ -127,6 +128,9 @@ export default function Login() {
                 <Text style={MainStyle.textoBotaoEntrar}>sair</Text>
               </TouchableOpacity>
 
+              <TouchableOpacity onPress={printAuth}>
+                <Text>Print Auth</Text>
+              </TouchableOpacity>
             </View>
           </View>
           <View style={MainStyle.baixo}>
@@ -137,6 +141,7 @@ export default function Login() {
             >
               <Text style={MainStyle.textoBotaoCadastre}>Cadastre-se</Text>
             </TouchableOpacity>
+
           </View>
         </KeyboardAvoidingView>
       </>
