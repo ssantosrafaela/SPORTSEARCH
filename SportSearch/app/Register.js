@@ -68,9 +68,9 @@ export default function Register() {
   if (fontsLoaded) {
     return (
       <>
-       <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={StyleRegister.container}>
+       <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={StyleRegister.teste}>
         <ScrollView>
-        <View style={StyleRegister.container}>
+        <View>
         <View style={StyleRegister.cima}>
           <Text style={StyleRegister.titulo}>Sport Search</Text>
           <Text style={StyleRegister.subtitulo}>
@@ -131,8 +131,8 @@ export default function Register() {
               placeholderTextColor={"#fff"}
               dropdownStyles={{
                 width: 285,
-                backgroundColor: "#",
-                borderColor: "#fc4821",
+                backgroundColor: "#fc4821",
+                borderColor: "#EF3006",
                 marginBottom: 20,
               }}
               boxStyles={{

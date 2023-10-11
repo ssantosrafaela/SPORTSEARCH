@@ -1,10 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor: "#1D2F4D",
-  },
   cima: {
     flex: 0.8,
     backgroundColor: "#1D2F4D",
@@ -56,5 +52,9 @@ export default StyleSheet.create({
   },
   text: {
     color: "white",
+  },
+  teste : {
+    flex: 1,
+    backgroundColor: "#1D2F4D",
   },
 });
