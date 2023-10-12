@@ -32,6 +32,7 @@ export default StyleSheet.create({
     textShadowRadius: 4,
   },
   subtitulo: {
+    fontSize: 20,
     color: "white",
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
@@ -45,8 +46,9 @@ export default StyleSheet.create({
     borderRadius: 10,
     borderColor: "#EF3006",
     marginBottom: 10,
-    paddingLeft: 5,
+    paddingLeft: 10,
     color: "#fff",
+    fontSize: 18, 
   },
   inputArea: {
     flexDirection: "row",
@@ -62,7 +64,7 @@ export default StyleSheet.create({
     width: "85%",
     height: 50,
     color: "#fff",
-    padding: 8,
+    padding: 10,
     fontSize: 18,
   },
   icon: {
@@ -73,9 +75,10 @@ export default StyleSheet.create({
   },
   botaoEntrar: {
     borderWidth: 1,
-    borderRadius: 5,
-    width: 45,
-    height: 20,
+    borderRadius: 3,
+    width: 100,
+    height: 30,
+    marginTop: 20,
     borderColor: "#EF3006",
     backgroundColor: "#fff",
     justifyContent: "center",
@@ -83,6 +86,7 @@ export default StyleSheet.create({
   },
   textoBotaoEntrar: {
     color: "#EF3006",
+    fontSize: 15,
   },
   botaoEnd: {
     position: "absolute",

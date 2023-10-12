@@ -4,7 +4,6 @@ export default function Entrada(props) {
 
   return (
     <>
-      <Text style={styles.text}>{props.text}</Text>
       <TextInput
         style={styles.box}
         onChangeText={(e) => props.setValue(e)}
@@ -20,15 +19,13 @@ const styles = StyleSheet.create({
     box: {
       paddingLeft: 5,
       marginBottom: 5,
-      width: 230,
+      width: 300,
       height: 50,
       borderColor: "#EF3006",
-      borderWidth: 1,
-      borderRadius: 10,
+      borderBottomWidth: 1,
       flexDirection: 'row'
     },
     text: {
       color: "white",
-
     },
   });

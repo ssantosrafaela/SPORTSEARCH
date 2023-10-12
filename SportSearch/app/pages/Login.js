@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
-import MainStyle from "../components/StyleLogin";
+import MainStyle from "../../components/StyleLogin";
 import Checkbox from "expo-checkbox";
 import { Ionicons } from "@expo/vector-icons";
 import {
@@ -16,15 +16,14 @@ import {
   auth,
   createUser,
   signOutFirebase,
-} from "../connections/firebase-auth";
-import { ScrollView } from "react-native-gesture-handler";
+} from "../../connections/firebase-auth";
 
 export default function Login() {
   const nav = useNavigation();
 
   const [fontsLoaded] = useFonts({
-    "Archivo_ExtraCondensed-BlackItalic.ttf": require("../assets/fonts/Archivo_ExtraCondensed-BlackItalic.ttf"),
-    "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
+    "Archivo_ExtraCondensed-BlackItalic.ttf": require("../../assets/fonts/Archivo_ExtraCondensed-BlackItalic.ttf"),
+    "Archivo_Condensed-SemiBoldItalic.ttf": require("../../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
 
   const [textUser, setUser] = useState("");
@@ -61,7 +60,7 @@ export default function Login() {
           style={MainStyle.container}
         >
           <View style={MainStyle.cima}>
-            <Text style={MainStyle.titulo}>Sport Search</Text>
+            <Text style={MainStyle.titulo}>Sport BAH</Text>
             <Text style={MainStyle.subtitulo}>Entre para continuar</Text>
           </View>
 
@@ -70,7 +69,7 @@ export default function Login() {
               style={MainStyle.input}
               onChangeText={(e) => setUser(e)}
               value={textUser}
-              placeholder="E-mail"
+              placeholder="Insira seu usuário ou e-mail"
               placeholderTextColor={"#fff"}
               keyboardType="email-address"
             />
@@ -95,7 +94,7 @@ export default function Login() {
               </TouchableOpacity>
             </View>
 
-            {/* <View style={MainStyle.checkboxContainer}>
+            <View style={MainStyle.checkboxContainer}>
               <Checkbox
                 value={isSelected}
                 onValueChange={setSelection}
@@ -105,22 +104,20 @@ export default function Login() {
                 {" "}
                 Quer se manter conectado?{" "}
               </Text>
-            </View> */}
+            </View>
 
-             <View>
+            <View style={MainStyle.botaoEnd}>
               <TouchableOpacity
                 style={MainStyle.botaoEntrar}
                 onPress={() => {
-                 if(textUser == "" || textPassword == "") {
-                    alert("Preencha os campos");
-                  } else {
-                  tryLogin(nav.navigate("Register"))
-                  }
-                }} >
-              <Text style={MainStyle.textoBotaoEntrar}>Entrar</Text>
-              </TouchableOpacity> 
+                 // nav.navigate("Register");
+                  tryLogin()
+                }}
+              >
+                <Text style={MainStyle.textoBotaoEntrar}>Entrar</Text>
+              </TouchableOpacity>
 
-              {/* <TouchableOpacity
+              <TouchableOpacity
                 style={MainStyle.botaoEntrar}
                 onPress={() => {
                   nav.navigate("Register");
@@ -128,22 +125,18 @@ export default function Login() {
                 }}
               >
                 <Text style={MainStyle.textoBotaoEntrar}>sair</Text>
-              </TouchableOpacity> */}
+              </TouchableOpacity>
 
-              {/* <TouchableOpacity onPress={printAuth}>
-                <Text>Print Auth</Text>
-              </TouchableOpacity> */}
             </View>
           </View>
           <View style={MainStyle.baixo}>
             <Text style={MainStyle.textoBaixo}>Esqueceu a senha?</Text>
-            {/* <TouchableOpacity
+            <TouchableOpacity
               style={MainStyle.botaoCadastre}
               onPress={() => nav.navigate("Register")}
             >
               <Text style={MainStyle.textoBotaoCadastre}>Cadastre-se</Text>
-            </TouchableOpacity> */}
-
+            </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
       </>
