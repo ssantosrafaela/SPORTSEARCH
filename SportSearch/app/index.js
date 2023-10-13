@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
   botao: {
     flex: "start",
     borderWidth: 1.3,
-    width: 200,
-    height: 35,
+    width: 250,
+    height: 40,
     borderRadius: 5,
     borderColor: "#EF3006",
     marginBottom: 10,

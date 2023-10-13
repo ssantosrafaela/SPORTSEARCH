@@ -10,7 +10,6 @@ import { KeyboardAvoidingView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { set } from "react-native-reanimated";
 
 export default function Register() {
   const nav = useNavigation();
@@ -22,9 +21,6 @@ export default function Register() {
   const [textNome, setNome] = useState("");
   const [textSobrenome, setSobrenome] = useState("");
   const [textTelefone, setTelefone] = useState("");
-  const [textEmail, setEmail] = useState("");
-  const [textSenha, setSenha] = useState("");
-  const [textConfirmarSenha, setConfirmarSenha] = useState("");
 
   //adding a data time picker
   const [date, setDate] = useState(new Date());
@@ -84,7 +80,7 @@ export default function Register() {
           behavior={Platform.OS == "ios" ? "padding" : "height"}
           style={StyleRegister.teste}
         >
-          <SafeAreaView>
+          <SafeAreaView style={StyleRegister.teste}>
             <ScrollView>
               <View style={StyleRegister.topBack}>
                 <TouchableOpacity
@@ -98,7 +94,7 @@ export default function Register() {
               <View style={StyleRegister.cima}>
                 <Text style={StyleRegister.titulo}>Sport Search</Text>
                 <Text style={StyleRegister.subtitulo}>
-                  Digite os dados para se cadastrar
+                  Insira seus dados para se cadastrar
                 </Text>
               </View>
 
@@ -180,13 +176,14 @@ export default function Register() {
                       placeholderTextColor={"#fff"}
                       dropdownStyles={{
                         width: 270,
+                      //  height: 40,
                         backgroundColor: "#fc4821",
                         borderColor: "#EF3006",
                         marginBottom: 20,
                       }}
                       boxStyles={{
                         width: 270,
-                        height: 40,
+                        height: 45,
                         borderColor: "#EF3006",
                         marginBottom: 20,
                       }}
@@ -202,6 +199,7 @@ export default function Register() {
                       placeholderTextColor={"#fff"}
                       dropdownStyles={{
                         width: 270,
+                        backgroundColor: "#fc4821",
                         borderColor: "#EF3006",
                         marginBottom: 20,
                         color: "#fff",
@@ -221,7 +219,7 @@ export default function Register() {
               </View>
               <View style={StyleRegister.next}>
                 <TouchableOpacity
-                  onPress={() => nav.navigate("index")}
+                  onPress={() => nav.navigate("SecRegister")}
                   style={StyleRegister.next}
                 >
                   <Text style={StyleRegister.continuar}>Continuar</Text>
@@ -229,7 +227,7 @@ export default function Register() {
                 </TouchableOpacity>
               </View>
             </ScrollView>
-          </SafeAreaView>
+        </SafeAreaView>
         </KeyboardAvoidingView>
       </>
     );

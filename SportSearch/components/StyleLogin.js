@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    backgroundColor: "red",
   },
   cima: {
     flex: 1.6,
@@ -119,5 +119,8 @@ export default StyleSheet.create({
  },
  scrollviewContainer:{
   backgroundColor: '#1D2F4D',
+ },
+ aaaa:{
+  backgroundColor: '#1df',
  }
 });
