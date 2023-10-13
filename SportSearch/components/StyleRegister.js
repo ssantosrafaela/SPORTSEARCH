@@ -6,7 +6,7 @@ export default StyleSheet.create({
     backgroundColor: "#1D2F4D",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 17,
   },
   meio: {
     flex: 1.5,
@@ -15,7 +15,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   baixo: {
-    flex: 1,
+    flex: 0.4,
     backgroundColor: "#1D2F4D",
     justifyContent: "center",
     alignItems: "center",
@@ -39,14 +39,7 @@ export default StyleSheet.create({
     marginTop: 17,
     marginBottom: 17,
   },
-  textoBaixo: {
-    color: "#fff",
-    textShadowColor: "#EF3006",
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
-    fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
-    fontSize: 17,
-  },
+
   picker: {
     backgroundColor: "#1D2F4D",
     borderColor: "#EF3006",
@@ -76,4 +69,46 @@ export default StyleSheet.create({
     backgroundColor: '#1D2F4D',
     paddingLeft: 10,
 },
+  next:{
+    backgroundColor: '#1D2F4D',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 110,
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+continuar:{
+  color: '#fff',
+  fontSize: 17,
+  paddingRight: 5,
+  paddingLeft: 5,
+  paddingTop: 5,
+  paddingBottom: 5,
+  borderColor: '#EF3006',
+  borderWidth: 1,
+  borderRadius: 5,
+},
+ input:{
+   flexDirection: 'row',
+ },
+inputArea: {
+  flexDirection: "row",
+  width: 270,
+  backgroundColor: "#1D2F4D",
+  borderWidth: 1,
+  borderRadius: 10,
+  borderColor: "#EF3006",
+  height: 40,
+  alignItems: "center",
+  marginTop: 15,
+  marginBottom: 5
+},
+text:{
+  fontSize: 15,
+  color: '#fff',
+  justifyContent: 'center', 
+  alignItems: 'center',
+  paddingLeft: 18,
+  paddingTop: 7.5,
+}
 });

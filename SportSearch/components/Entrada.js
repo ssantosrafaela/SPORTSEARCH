@@ -17,32 +17,19 @@ export default function Entrada(props) {
 const styles = StyleSheet.create({
   
     box: {
-      paddingLeft: 10,
+      paddingLeft: 18,
       marginBottom: 5,
       borderRadius: 10,
       width: 270,
       height: 45,
       borderColor: "#EF3006",
       borderWidth: 1,
-     // flexDirection: 'row',
       marginTop: 15,
       color: '#fff',
-
-
+      fontSize: 15,
     },
     text: {
       color: "white",
+      fontSize: 15,
     },
   });
-
-  //  input: {
-  //   borderWidth: 1,
-  //   width: 270,
-  //   height: 40,
-  //   borderRadius: 10,
-  //   borderColor: "#EF3006",
-  //   marginBottom: 10,
-  //   paddingLeft: 10,
-  //   color: "#fff",
-  //   fontSize: 18, 
-  // },

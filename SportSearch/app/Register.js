@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
 import Entrada from "../components/Entrada";
@@ -13,6 +9,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAvoidingView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { set } from "react-native-reanimated";
 
 export default function Register() {
   const nav = useNavigation();
@@ -24,10 +22,23 @@ export default function Register() {
   const [textNome, setNome] = useState("");
   const [textSobrenome, setSobrenome] = useState("");
   const [textTelefone, setTelefone] = useState("");
-  const [textDataNascimento, setDataNascimento] = useState("");
   const [textEmail, setEmail] = useState("");
   const [textSenha, setSenha] = useState("");
   const [textConfirmarSenha, setConfirmarSenha] = useState("");
+
+  //adding a data time picker
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+  const [mode, setMode] = useState("date");
+
+  const onChange = (event, selectedDate) => {
+    setDate(selectedDate);
+    setShow(false);
+  };
+  const showMode = (modeToShow) => {
+    setShow(true);
+    setMode(modeToShow);
+  };
 
   const [gnr, setGnr] = useState([
     { label: "Feminino", value: "Feminino" },
@@ -69,57 +80,76 @@ export default function Register() {
   if (fontsLoaded) {
     return (
       <>
-       <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={StyleRegister.teste}>
-        <SafeAreaView>
-        <ScrollView>
-        <View style={StyleRegister.topBack}>
-            <TouchableOpacity
-              onPress={() => nav.navigate("index")}
-              style={StyleRegister.back}
-            >
-              <Ionicons name="arrow-back" color="#fff" size={30} />
-            </TouchableOpacity>
-          </View>
-        <View>
-        <View style={StyleRegister.cima}>
-          <Text style={StyleRegister.titulo}>Sport Search</Text>
-          <Text style={StyleRegister.subtitulo}>
-            Digite os dados para se cadastrar
-          </Text>
-        </View>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          style={StyleRegister.teste}
+        >
+          <SafeAreaView>
+            <ScrollView>
+              <View style={StyleRegister.topBack}>
+                <TouchableOpacity
+                  onPress={() => nav.navigate("index")}
+                  style={StyleRegister.back}
+                >
+                  <Ionicons name="arrow-back" color="#fff" size={30} />
+                </TouchableOpacity>
+              </View>
 
-        <View style={StyleRegister.meio}>
-          <View>
-            <Entrada
-              text={"Nome"}
-              label="Nome:"
-              setValue={setNome}
-              value={textNome}
-            />
+              <View style={StyleRegister.cima}>
+                <Text style={StyleRegister.titulo}>Sport Search</Text>
+                <Text style={StyleRegister.subtitulo}>
+                  Digite os dados para se cadastrar
+                </Text>
+              </View>
 
-            <Entrada
-              text={"Sobrenome"}
-              label="Sobrenome: "
-              setValue={setSobrenome}
-              value={textSobrenome}
-            />
+              <View style={StyleRegister.meio}>
+                <View>
+                  <Entrada
+                    text={"Nome"}
+                    label="Nome:"
+                    setValue={setNome}
+                    value={textNome}
+                  />
 
-            <Entrada
-              text={"Telefone"}
-              label={"Telefone: "}
-              setValue={setTelefone}
-              value={textTelefone}
-            />
+                  <Entrada
+                    text={"Sobrenome"}
+                    label="Sobrenome: "
+                    setValue={setSobrenome}
+                    value={textSobrenome}
+                  />
 
-           <Entrada
+                  <Entrada
+                    text={"Telefone"}
+                    label={"Telefone: "}
+                    setValue={setTelefone}
+                    value={textTelefone}
+                  />
+
+                  <View style={StyleRegister.inputArea}>
+                    <TouchableOpacity
+                      onPress={() => showMode("date")}
+                      style={StyleRegister.input}
+                    >
+                      <Text style={StyleRegister.text}>
+                        Data de Nascimento:{" "}
+                      </Text>
+                      <DateTimePicker
+                        value={date}
+                        mode={mode}
+                        is24Hour={true}
+                        display="default"
+                        onChange={onChange}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  {/* <Entrada
               text={"Data de Nascimento"}
               label={"Data de Nascimento: "}
               setValue={setDataNascimento}
               value={textDataNascimento}
-            />
+            /> */}
 
-                      
-          <Entrada
+                  {/* <Entrada
               text={"Email"}
               label={"Email: "}
               setValue={setEmail}
@@ -138,68 +168,68 @@ export default function Register() {
               label={"Confirme sua Senha: "}
               setValue={setConfirmarSenha}
               value={textConfirmarSenha}
-            />
+            /> */}
 
-            <View style={StyleRegister.select}>
-              <SelectList
-                value={gnr}
-                setSelected={(e) => setGnr(e)}
-                data={gnr}
-                save="key"
-                placeholder="Selecione seu gênero:"
-                placeholderTextColor={"#fff"}
-                dropdownStyles={{
-                  width: 270,
-                  backgroundColor: "#fc4821",
-                  borderColor: "#EF3006",
-                  marginBottom: 20,
-                }}
-                boxStyles={{
-                  width: 270,
-                  height: 40,
-                  borderColor: "#EF3006",
-                  marginBottom: 20,
-                }}
-                inputStyles={{ color: "white" }}
-              />
+                  <View style={StyleRegister.select}>
+                    <SelectList
+                      value={gnr}
+                      setSelected={(e) => setGnr(e)}
+                      data={gnr}
+                      save="key"
+                      placeholder="Selecione seu gênero:"
+                      placeholderTextColor={"#fff"}
+                      dropdownStyles={{
+                        width: 270,
+                        backgroundColor: "#fc4821",
+                        borderColor: "#EF3006",
+                        marginBottom: 20,
+                      }}
+                      boxStyles={{
+                        width: 270,
+                        height: 40,
+                        borderColor: "#EF3006",
+                        marginBottom: 20,
+                      }}
+                      inputStyles={{ color: "white" }}
+                    />
 
-            <SelectList
-            value={data}
-              setSelected={(j) => setSelected(j)}
-              data={data}
-              save="key"
-              placeholder="Selecione seu estado:"
-              placeholderTextColor={"#fff"}
-              dropdownStyles={{
-                width: 270,
-                borderColor: "#EF3006",
-                marginBottom: 20,
-                color: '#fff'
-              }}
-              boxStyles={{
-                width: 270,
-                height: 40,
-                borderColor: "#EF3006",
-                color: '#fff'
-              }}
-              inputStyles={{
-                color: "white",
-              }}
-            />
-            </View>
-
-          </View>
-        
-        <View style={StyleRegister.baixo}>
-            <TouchableOpacity
-              onPress={() => nav.navigate("Login")} >
-              <Text style={StyleRegister.textoBaixo}> Já possui cadastro? ENTRAR</Text>
-            </TouchableOpacity>
-          </View>
-          </View>
-        </View>
-        </ScrollView>
-        </SafeAreaView>
+                    <SelectList
+                      value={data}
+                      setSelected={(j) => setSelected(j)}
+                      data={data}
+                      save="key"
+                      placeholder="Selecione seu estado:"
+                      placeholderTextColor={"#fff"}
+                      dropdownStyles={{
+                        width: 270,
+                        borderColor: "#EF3006",
+                        marginBottom: 20,
+                        color: "#fff",
+                      }}
+                      boxStyles={{
+                        width: 270,
+                        height: 40,
+                        borderColor: "#EF3006",
+                        color: "#fff",
+                      }}
+                      inputStyles={{
+                        color: "white",
+                      }}
+                    />
+                  </View>
+                </View>
+              </View>
+              <View style={StyleRegister.next}>
+                <TouchableOpacity
+                  onPress={() => nav.navigate("index")}
+                  style={StyleRegister.next}
+                >
+                  <Text style={StyleRegister.continuar}>Continuar</Text>
+                  <Ionicons name="arrow-forward" color="#fff" size={30} />
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </SafeAreaView>
         </KeyboardAvoidingView>
       </>
     );
