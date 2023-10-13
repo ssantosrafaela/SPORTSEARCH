@@ -23,7 +23,7 @@ export default StyleSheet.create({
     zIndex: -1,
   },
   titulo: {
-    fontSize: 50,
+    fontSize: 60,
     fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
     color: "#fff",
     textShadowColor: "#EF3006",
@@ -32,15 +32,21 @@ export default StyleSheet.create({
   },
   subtitulo: {
     color: "#fff",
+    fontSize: 18,
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
     textShadowRadius: 4,
-    marginTop: 10,
+    marginTop: 17,
+    marginBottom: 17,
   },
-  dadosNome: {
-    //flexDirection: 'row'
+  textoBaixo: {
+    color: "#fff",
+    textShadowColor: "#EF3006",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
+    fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
+    fontSize: 17,
   },
-  botaoEntrar: {},
   picker: {
     backgroundColor: "#1D2F4D",
     borderColor: "#EF3006",
@@ -61,4 +67,13 @@ export default StyleSheet.create({
     marginTop: 15,
     marginBottom: 15,
   },
+  topBack:{
+    backgroundColor: '#1D2F4D',
+   },
+   back: {
+    JustifyContent: 'left',
+    alignItems: 'left',
+    backgroundColor: '#1D2F4D',
+    paddingLeft: 10,
+},
 });

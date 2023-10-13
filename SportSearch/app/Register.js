@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   View,
-  TextInput,
   Text,
   TouchableOpacity,
 } from "react-native";
@@ -12,8 +11,8 @@ import StyleRegister from "../components/StyleRegister";
 import { SelectList } from "react-native-dropdown-select-list";
 import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAvoidingView } from "react-native";
-import { set } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Register() {
   const nav = useNavigation();
@@ -24,12 +23,11 @@ export default function Register() {
 
   const [textNome, setNome] = useState("");
   const [textSobrenome, setSobrenome] = useState("");
-  // const [textGenero, setGenero] = useState("");
-  // const [textCidade, setCidade] = useState("");
   const [textTelefone, setTelefone] = useState("");
   const [textDataNascimento, setDataNascimento] = useState("");
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [textEmail, setEmail] = useState("");
+  const [textSenha, setSenha] = useState("");
+  const [textConfirmarSenha, setConfirmarSenha] = useState("");
 
   const [gnr, setGnr] = useState([
     { label: "Feminino", value: "Feminino" },
@@ -74,6 +72,14 @@ export default function Register() {
        <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={StyleRegister.teste}>
         <SafeAreaView>
         <ScrollView>
+        <View style={StyleRegister.topBack}>
+            <TouchableOpacity
+              onPress={() => nav.navigate("index")}
+              style={StyleRegister.back}
+            >
+              <Ionicons name="arrow-back" color="#fff" size={30} />
+            </TouchableOpacity>
+          </View>
         <View>
         <View style={StyleRegister.cima}>
           <Text style={StyleRegister.titulo}>Sport Search</Text>
@@ -112,6 +118,28 @@ export default function Register() {
               value={textDataNascimento}
             />
 
+                      
+          <Entrada
+              text={"Email"}
+              label={"Email: "}
+              setValue={setEmail}
+              value={textEmail}
+            />
+
+            <Entrada
+              text={"Senha"}
+              label={"Senha: "}
+              setValue={setSenha}
+              value={textSenha}
+            />
+
+            <Entrada
+              text={"Confirmar Senha"}
+              label={"Confirme sua Senha: "}
+              setValue={setConfirmarSenha}
+              value={textConfirmarSenha}
+            />
+
             <View style={StyleRegister.select}>
               <SelectList
                 value={gnr}
@@ -137,14 +165,13 @@ export default function Register() {
 
             <SelectList
             value={data}
-              setSelected={(e) => setSelected(e)}
+              setSelected={(j) => setSelected(j)}
               data={data}
               save="key"
               placeholder="Selecione seu estado:"
               placeholderTextColor={"#fff"}
               dropdownStyles={{
                 width: 270,
-                backgroundColor: "#fc4821",
                 borderColor: "#EF3006",
                 marginBottom: 20,
                 color: '#fff'
@@ -153,27 +180,21 @@ export default function Register() {
                 width: 270,
                 height: 40,
                 borderColor: "#EF3006",
-                marginBottom: 20,
                 color: '#fff'
               }}
               inputStyles={{
                 color: "white",
               }}
             />
-
             </View>
+
           </View>
         
         <View style={StyleRegister.baixo}>
-          <Text style={StyleRegister.text}>
-            Já Possui Cadastro?
             <TouchableOpacity
-              //  style={MainStyle.botaoEntrar}
-              onPress={() => nav.navigate("Login")}
-            >
-              <Text style={StyleRegister.text}>Entrar</Text>
+              onPress={() => nav.navigate("Login")} >
+              <Text style={StyleRegister.textoBaixo}> Já possui cadastro? ENTRAR</Text>
             </TouchableOpacity>
-          </Text>
           </View>
           </View>
         </View>
