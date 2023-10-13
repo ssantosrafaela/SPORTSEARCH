@@ -12,6 +12,8 @@ import StyleRegister from "../components/StyleRegister";
 import { SelectList } from "react-native-dropdown-select-list";
 import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAvoidingView } from "react-native";
+import { set } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Register() {
   const nav = useNavigation();
@@ -23,8 +25,9 @@ export default function Register() {
   const [textNome, setNome] = useState("");
   const [textSobrenome, setSobrenome] = useState("");
   // const [textGenero, setGenero] = useState("");
-  const [textCidade, setCidade] = useState("");
+  // const [textCidade, setCidade] = useState("");
   const [textTelefone, setTelefone] = useState("");
+  const [textDataNascimento, setDataNascimento] = useState("");
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(null);
 
@@ -69,6 +72,7 @@ export default function Register() {
     return (
       <>
        <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={StyleRegister.teste}>
+        <SafeAreaView>
         <ScrollView>
         <View>
         <View style={StyleRegister.cima}>
@@ -82,25 +86,55 @@ export default function Register() {
           <View>
             <Entrada
               text={"Nome"}
-              label="Digite seu nome"
+              label="Nome:"
               setValue={setNome}
               value={textNome}
             />
 
             <Entrada
               text={"Sobrenome"}
-              label="Digite seu sobrenome"
+              label="Sobrenome: "
               setValue={setSobrenome}
               value={textSobrenome}
             />
 
             <Entrada
               text={"Telefone"}
-              label={"Digite seu telefone"}
+              label={"Telefone: "}
               setValue={setTelefone}
               value={textTelefone}
             />
-            
+
+           <Entrada
+              text={"Data de Nascimento"}
+              label={"Data de Nascimento: "}
+              setValue={setDataNascimento}
+              value={textDataNascimento}
+            />
+
+            <View style={StyleRegister.select}>
+              <SelectList
+                value={gnr}
+                setSelected={(e) => setGnr(e)}
+                data={gnr}
+                save="key"
+                placeholder="Selecione seu gênero:"
+                placeholderTextColor={"#fff"}
+                dropdownStyles={{
+                  width: 270,
+                  backgroundColor: "#fc4821",
+                  borderColor: "#EF3006",
+                  marginBottom: 20,
+                }}
+                boxStyles={{
+                  width: 270,
+                  height: 40,
+                  borderColor: "#EF3006",
+                  marginBottom: 20,
+                }}
+                inputStyles={{ color: "white" }}
+              />
+
             <SelectList
             value={data}
               setSelected={(e) => setSelected(e)}
@@ -109,39 +143,25 @@ export default function Register() {
               placeholder="Selecione seu estado:"
               placeholderTextColor={"#fff"}
               dropdownStyles={{
-                width: 285,
+                width: 270,
                 backgroundColor: "#fc4821",
                 borderColor: "#EF3006",
                 marginBottom: 20,
+                color: '#fff'
               }}
               boxStyles={{
-                width: 285,
+                width: 270,
+                height: 40,
                 borderColor: "#EF3006",
                 marginBottom: 20,
+                color: '#fff'
               }}
-              inputStyles={{ color: "white" }}
+              inputStyles={{
+                color: "white",
+              }}
             />
 
-            <SelectList
-              value={gnr}
-              setSelected={(e) => setGnr(e)}
-              data={gnr}
-              save="key"
-              placeholder="Selecione seu gênero:"
-              placeholderTextColor={"#fff"}
-              dropdownStyles={{
-                width: 285,
-                backgroundColor: "#fc4821",
-                borderColor: "#EF3006",
-                marginBottom: 20,
-              }}
-              boxStyles={{
-                width: 285,
-                borderColor: "#EF3006",
-                marginBottom: 20,
-              }}
-              inputStyles={{ color: "white" }}
-            />
+            </View>
           </View>
         
         <View style={StyleRegister.baixo}>
@@ -158,6 +178,7 @@ export default function Register() {
           </View>
         </View>
         </ScrollView>
+        </SafeAreaView>
         </KeyboardAvoidingView>
       </>
     );

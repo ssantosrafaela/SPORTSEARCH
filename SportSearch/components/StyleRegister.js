@@ -57,4 +57,8 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "#1D2F4D",
   },
+  select: {
+    marginTop: 15,
+    marginBottom: 15,
+  },
 });

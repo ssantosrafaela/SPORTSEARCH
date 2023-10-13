@@ -25,7 +25,6 @@ export default function Login() {
     "Archivo_ExtraCondensed-BlackItalic.ttf": require("../assets/fonts/Archivo_ExtraCondensed-BlackItalic.ttf"),
     "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
-
   const [textUser, setUser] = useState("");
   const [textPassword, setPassword] = useState("");
   const [hidePass, setHidePass] = useState(true);
