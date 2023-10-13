@@ -93,26 +93,6 @@ export default StyleSheet.create({
     top: 120,
     right: 65,
   },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginRight: 95,
-    marginTop: 10,
-  },
-  checkbox: {
-    alignSelf: "center",
-    height: 15,
-    width: 15,
-    borderColor: "#EF3006",
-    borderRadius: 5,
-    borderWidth: 1.4,
-  },
-  checkboxText: {
-    color: "#fff",
-    fontSize: 15,
-    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
-    textShadowColor: "#EF3006",
-    textShadowRadius: 4,
-  },
   textoBaixo: {
     marginBottom: 20,
     color: "#fff",
@@ -123,16 +103,12 @@ export default StyleSheet.create({
     textShadowOffset: { width: 4, height: 4 },
   },
   back: {
-   // paddingBottom: 30,
     JustifyContent: 'left',
     alignItems: 'left',
     backgroundColor: '#1D2F4D',
-   marginRight: 40,
-   
-    //height: '100%',
+    marginRight: 40,
     paddingTop: 45,
     paddingLeft: 10,
-    //marginTop: 50,
 },
  topBack:{
   backgroundColor: '#1D2F4D',

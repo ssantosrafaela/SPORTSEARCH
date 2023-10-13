@@ -9,7 +9,6 @@ import {
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
 import MainStyle from "../components/StyleLogin";
-import Checkbox from "expo-checkbox";
 import { Ionicons } from "@expo/vector-icons";
 import {
   emailLogin,
@@ -29,7 +28,6 @@ export default function Login() {
 
   const [textUser, setUser] = useState("");
   const [textPassword, setPassword] = useState("");
-  const [isSelected, setSelection] = useState(false);
   const [hidePass, setHidePass] = useState(true);
 
   const tryLogin = async () => {
