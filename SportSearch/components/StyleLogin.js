@@ -41,8 +41,8 @@ export default StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    width: 250,
-    height: 30,
+    width: 270,
+    height: 40,
     borderRadius: 10,
     borderColor: "#EF3006",
     marginBottom: 10,
@@ -52,16 +52,16 @@ export default StyleSheet.create({
   },
   inputArea: {
     flexDirection: "row",
-    width: 250,
+    width: 270,
     backgroundColor: "#1D2F4D",
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "#EF3006",
-    height: 30,
+    height: 40,
     alignItems: "center",
   },
   inputTeste: {
-    width: "85%",
+    width: 220,
     height: 50,
     color: "#fff",
     padding: 10,
@@ -76,8 +76,8 @@ export default StyleSheet.create({
   botaoEntrar: {
     borderWidth: 1,
     borderRadius: 3,
-    width: 100,
-    height: 30,
+    width: 120,
+    height: 35,
     marginTop: 20,
     borderColor: "#EF3006",
     backgroundColor: "#fff",
@@ -86,26 +86,12 @@ export default StyleSheet.create({
   },
   textoBotaoEntrar: {
     color: "#EF3006",
-    fontSize: 15,
+    fontSize: 18,
   },
   botaoEnd: {
     position: "absolute",
     top: 120,
     right: 65,
-  },
-  botaoCadastre: {
-    borderWidth: 1,
-    borderRadius: 5,
-    width: 90,
-    height: 25,
-    borderColor: "#EF3006",
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  textoBotaoCadastre: {
-    color: "#EF3006",
-    fontSize: 16,
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -136,4 +122,26 @@ export default StyleSheet.create({
     fontSize: 17,
     textShadowOffset: { width: 4, height: 4 },
   },
+  back: {
+   // paddingBottom: 30,
+    JustifyContent: 'left',
+    alignItems: 'left',
+    backgroundColor: '#1D2F4D',
+   marginRight: 40,
+   
+    //height: '100%',
+    paddingTop: 45,
+    paddingLeft: 10,
+    //marginTop: 50,
+},
+ topBack:{
+  backgroundColor: '#1D2F4D',
+ },
+ scrollview:{
+  backgroundColor: '#1D2F4D',
+  marginTop: 30,
+ },
+ scrollviewContainer:{
+  backgroundColor: '#1D2F4D',
+ }
 });
