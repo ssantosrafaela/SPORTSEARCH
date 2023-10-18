@@ -2,24 +2,23 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    backgroundColor: "#1D2F4D",
   },
   cima: {
-    flex: 1.6,
+    width: "100%",
+    height: "45%",
     backgroundColor: "#1D2F4D",
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 50,
   },
   meio: {
-    flex: 1,
     backgroundColor: "#1D2F4D",
     justifyContent: "center",
     alignItems: "center",
     paddingBottom: 130,
   },
   baixo: {
-    flex: 1,
     backgroundColor: "#1D2F4D",
     alignItems: "center",
   },
@@ -120,7 +119,4 @@ export default StyleSheet.create({
  scrollviewContainer:{
   backgroundColor: '#1D2F4D',
  },
- aaaa:{
-  backgroundColor: '#1df',
- }
 });

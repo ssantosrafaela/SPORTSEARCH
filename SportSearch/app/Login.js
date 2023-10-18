@@ -57,8 +57,6 @@ export default function Login() {
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           style={MainStyle.container}
         > 
-          <SafeAreaView style={MainStyle.container}>
-            <ScrollView>
               <View style={MainStyle.topBack}>
                 <TouchableOpacity
                   onPress={() => nav.navigate("index")}
@@ -119,9 +117,6 @@ export default function Login() {
               <View style={MainStyle.baixo}>
                 <Text style={MainStyle.textoBaixo}>Esqueceu a senha?</Text>
               </View>
-
-            </ScrollView>
-          </SafeAreaView>
        </KeyboardAvoidingView>
       </>
     );
