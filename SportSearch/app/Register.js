@@ -10,6 +10,7 @@ import { KeyboardAvoidingView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import Checkbox from "expo-checkbox";
 
 export default function Register() {
   const nav = useNavigation();
@@ -21,6 +22,11 @@ export default function Register() {
   const [textNome, setNome] = useState("");
   const [textSobrenome, setSobrenome] = useState("");
   const [textTelefone, setTelefone] = useState("");
+  const [textEmail, setEmail] = useState("");
+  const [textSenha, setSenha] = useState("");
+  const [textConfSenha, setConfSenha] = "";
+
+  const [isChecked, setIsChecked] = useState(false);
 
   //adding a data time picker
   const [date, setDate] = useState(new Date());
@@ -99,24 +105,28 @@ export default function Register() {
               </View>
 
               <View style={StyleRegister.meio}>
+                <View style={StyleRegister.dadosV}>
+                  <Text style={StyleRegister.dados}>Dados Pessoais:</Text>
+                </View>
+
                 <View>
                   <Entrada
                     text={"Nome"}
-                    label="Nome:"
+                    label="Digite seu nome"
                     setValue={setNome}
                     value={textNome}
                   />
 
                   <Entrada
-                    text={"Sobrenome"}
-                    label="Sobrenome: "
+                    text={"Digite seu sobrenome"}
+                    label="Sobrenome "
                     setValue={setSobrenome}
                     value={textSobrenome}
                   />
 
                   <Entrada
                     text={"Telefone"}
-                    label={"Telefone: "}
+                    label={"Insira seu telefone "}
                     setValue={setTelefone}
                     value={textTelefone}
                   />
@@ -127,7 +137,7 @@ export default function Register() {
                       style={StyleRegister.input}
                     >
                       <Text style={StyleRegister.text}>
-                        Data de Nascimento:{" "}
+                        Data de nascimento{" "}
                       </Text>
                       <DateTimePicker
                         value={date}
@@ -138,33 +148,6 @@ export default function Register() {
                       />
                     </TouchableOpacity>
                   </View>
-                  {/* <Entrada
-              text={"Data de Nascimento"}
-              label={"Data de Nascimento: "}
-              setValue={setDataNascimento}
-              value={textDataNascimento}
-            /> */}
-
-                  {/* <Entrada
-              text={"Email"}
-              label={"Email: "}
-              setValue={setEmail}
-              value={textEmail}
-            />
-
-            <Entrada
-              text={"Senha"}
-              label={"Senha: "}
-              setValue={setSenha}
-              value={textSenha}
-            />
-
-            <Entrada
-              text={"Confirmar Senha"}
-              label={"Confirme sua Senha: "}
-              setValue={setConfirmarSenha}
-              value={textConfirmarSenha}
-            /> */}
 
                   <View style={StyleRegister.select}>
                     <SelectList
@@ -176,7 +159,7 @@ export default function Register() {
                       placeholderTextColor={"#fff"}
                       dropdownStyles={{
                         width: 270,
-                      //  height: 40,
+                        //  height: 40,
                         backgroundColor: "#fc4821",
                         borderColor: "#EF3006",
                         marginBottom: 20,
@@ -215,8 +198,42 @@ export default function Register() {
                       }}
                     />
                   </View>
+
+                  <View style={StyleRegister.meio}>
+                    <View style={StyleRegister.dadosV}>
+                      <ScrollView>
+                        <Text style={StyleRegister.dados}>
+                          Dados de Entrada:
+                        </Text>
+                      </ScrollView>
+                    </View>
+                  </View>
+
+                  <View style={StyleRegister.meio}>
+                    <Entrada
+                      text={"Email"}
+                      label={"Email: "}
+                      setValue={setEmail}
+                      value={textEmail}
+                    />
+
+                    <Entrada
+                      text={"Senha"}
+                      label={"Senha: "}
+                      setValue={setSenha}
+                      value={textSenha}
+                    />
+
+                    <Entrada
+                      text={"Confirmar Senha"}
+                      label={"Confirme sua Senha: "}
+                      setValue={setConfSenha}
+                      value={textConfSenha}
+                    />
+                  </View>
                 </View>
               </View>
+
               <View style={StyleRegister.next}>
                 <TouchableOpacity
                   onPress={() => nav.navigate("SecRegister")}
@@ -227,7 +244,7 @@ export default function Register() {
                 </TouchableOpacity>
               </View>
             </ScrollView>
-        </SafeAreaView>
+          </SafeAreaView>
         </KeyboardAvoidingView>
       </>
     );

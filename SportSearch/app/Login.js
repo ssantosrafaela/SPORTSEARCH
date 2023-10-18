@@ -55,7 +55,7 @@ export default function Login() {
       <>
          <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={MainStyle.container}
+          style={{backgroundColor: "#1D2F4D"}}
         > 
               <View style={MainStyle.topBack}>
                 <TouchableOpacity

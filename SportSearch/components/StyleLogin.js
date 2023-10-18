@@ -23,7 +23,7 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   titulo: {
-    fontSize: 70,
+    fontSize: 75,
     fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
     color: "#fff",
     textShadowColor: "#EF3006",

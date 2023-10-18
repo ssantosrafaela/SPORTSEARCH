@@ -113,5 +113,24 @@ text:{
   alignItems: 'center',
   paddingLeft: 18,
   paddingTop: 7.5,
-}
+},
+
+dados:{
+  color: '#fff',
+  fontSize: 17,
+  fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+  textShadowColor: "#EF3006",
+  textShadowRadius: 4,
+  paddingTop: 30,
+ // marginBottom: 20,
+},
+dadosV:{
+  backgroundColor: 'red',
+   justifyContent: 'center',
+   alignItems: 'center',
+   //paddingLeft: 110,
+  flexDirection: 'row',
+   marginTop: 20,
+ }, 
+
 });
