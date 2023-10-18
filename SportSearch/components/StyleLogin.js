@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   container: {
     backgroundColor: "#1D2F4D",
+    flex: 1,
   },
   cima: {
     width: "100%",

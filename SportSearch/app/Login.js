@@ -53,71 +53,73 @@ export default function Login() {
   if (fontsLoaded) {
     return (
       <>
-         <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={{backgroundColor: "#1D2F4D"}}
-        > 
-              <View style={MainStyle.topBack}>
+        <View style={MainStyle.container}>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ backgroundColor: "#1D2F4D" }}
+          >
+            <View style={MainStyle.topBack}>
+              <TouchableOpacity
+                onPress={() => nav.navigate("index")}
+                style={MainStyle.back}
+              >
+                <Ionicons name="arrow-back" color="#fff" size={30} />
+              </TouchableOpacity>
+            </View>
+            <View style={MainStyle.cima}>
+              <Text style={MainStyle.titulo}>Sport Search</Text>
+              <Text style={MainStyle.subtitulo}>Entre para continuar</Text>
+            </View>
+            <View style={MainStyle.meio}>
+              <TextInput
+                style={MainStyle.input}
+                onChangeText={(e) => setUser(e)}
+                value={textUser}
+                placeholder="E-mail"
+                placeholderTextColor={"#fff"}
+                keyboardType="email-address"
+              />
+
+              <View style={MainStyle.inputArea}>
+                <TextInput
+                  style={MainStyle.inputTeste}
+                  placeholder="Insira sua senha"
+                  placeholderTextColor={"#fff"}
+                  value={textPassword}
+                  onChangeText={(t) => setPassword(t)}
+                  secureTextEntry={hidePass}
+                />
                 <TouchableOpacity
-                  onPress={() => nav.navigate("index")}
-                  style={MainStyle.back}
+                  style={MainStyle.icon}
+                  onPress={() => setHidePass(!hidePass)}
                 >
-                  <Ionicons name="arrow-back" color="#fff" size={30} />
+                  {hidePass ? (
+                    <Ionicons name="eye" color="#fff" size={25} />
+                  ) : (
+                    <Ionicons name="eye-off" color="#fff" size={25} />
+                  )}
                 </TouchableOpacity>
               </View>
-              <View style={MainStyle.cima}>
-                <Text style={MainStyle.titulo}>Sport Search</Text>
-                <Text style={MainStyle.subtitulo}>Entre para continuar</Text>
-              </View>
-                <View style={MainStyle.meio}>
-                  <TextInput
-                    style={MainStyle.input}
-                    onChangeText={(e) => setUser(e)}
-                    value={textUser}
-                    placeholder="E-mail"
-                    placeholderTextColor={"#fff"}
-                    keyboardType="email-address"
-                  />
 
-                  <View style={MainStyle.inputArea}>
-                    <TextInput
-                      style={MainStyle.inputTeste}
-                      placeholder="Insira sua senha"
-                      placeholderTextColor={"#fff"}
-                      value={textPassword}
-                      onChangeText={(t) => setPassword(t)}
-                      secureTextEntry={hidePass}
-                    />
-                    <TouchableOpacity
-                      style={MainStyle.icon}
-                      onPress={() => setHidePass(!hidePass)}
-                    >
-                      {hidePass ? (
-                        <Ionicons name="eye" color="#fff" size={25} />
-                      ) : (
-                        <Ionicons name="eye-off" color="#fff" size={25} />
-                      )}
-                    </TouchableOpacity>
-                  </View>
-                        
-                    <TouchableOpacity
-                      style={MainStyle.botaoEntrar}
-                      onPress={() => {
-                        if (textUser == "" || textPassword == "") {
-                          alert("Preencha os campos");
-                        } else {
-                          tryLogin(nav.navigate("Register"));
-                        }
-                      }}
-                    >
-                      <Text style={MainStyle.textoBotaoEntrar}>Entrar</Text>
-                    </TouchableOpacity>
-                  </View>
-             
-              <View style={MainStyle.baixo}>
-                <Text style={MainStyle.textoBaixo}>Esqueceu a senha?</Text>
-              </View>
-       </KeyboardAvoidingView>
+              <TouchableOpacity
+                style={MainStyle.botaoEntrar}
+                onPress={() => {
+                  if (textUser == "" || textPassword == "") {
+                    alert("Preencha os campos");
+                  } else {
+                    tryLogin(nav.navigate("Register"));
+                  }
+                }}
+              >
+                <Text style={MainStyle.textoBotaoEntrar}>Entrar</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={MainStyle.baixo}>
+              <Text style={MainStyle.textoBaixo}>Esqueceu a senha?</Text>
+            </View>
+          </KeyboardAvoidingView>
+        </View>
       </>
     );
   } else {

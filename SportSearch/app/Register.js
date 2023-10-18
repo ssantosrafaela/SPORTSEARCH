@@ -105,7 +105,7 @@ export default function Register() {
               </View>
 
               <View style={StyleRegister.meio}>
-                <View style={StyleRegister.dadosV}>
+                <View style={StyleRegister.dadosP}>
                   <Text style={StyleRegister.dados}>Dados Pessoais:</Text>
                 </View>
 
@@ -200,7 +200,7 @@ export default function Register() {
                   </View>
 
                   <View style={StyleRegister.meio}>
-                    <View style={StyleRegister.dadosV}>
+                    <View style={StyleRegister.dadosE}>
                       <ScrollView>
                         <Text style={StyleRegister.dados}>
                           Dados de Entrada:
@@ -236,11 +236,16 @@ export default function Register() {
 
               <View style={StyleRegister.next}>
                 <TouchableOpacity
-                  onPress={() => nav.navigate("SecRegister")}
-                  style={StyleRegister.next}
+                  style={StyleRegister.botaoEntrar}
+                  onPress={() => {
+                    if (textUser == "" || textPassword == "") {
+                      alert("Preencha os campos");
+                    } else {
+                      tryLogin(nav.navigate("Register"));
+                    }
+                  }}
                 >
-                  <Text style={StyleRegister.continuar}>Continuar</Text>
-                  <Ionicons name="arrow-forward" color="#fff" size={30} />
+                  <Text style={StyleRegister.textoBotaoEntrar}>Entrar</Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>
