@@ -137,4 +137,27 @@ textoBotaoEntrar: {
   color: "#EF3006",
   fontSize: 18,
 },
+inputArea: {
+  flexDirection: "row",
+  width: 270,
+  backgroundColor: "#1D2F4D",
+  borderWidth: 1,
+  borderRadius: 10,
+  borderColor: "#EF3006",
+  height: 40,
+  alignItems: "center",
+},
+inputTeste: {
+  width: 220,
+  height: 50,
+  color: "#fff",
+  padding: 10,
+  fontSize: 18,
+},
+icon: {
+  width: "15%",
+  height: 50,
+  justifyContent: "center",
+  alignItems: "center",
+},
 });

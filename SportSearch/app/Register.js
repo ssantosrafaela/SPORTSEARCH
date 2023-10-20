@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
 import Entrada from "../components/Entrada";
@@ -23,9 +23,12 @@ export default function Register() {
   const [textSobrenome, setSobrenome] = useState("");
   const [textTelefone, setTelefone] = useState("");
   const [textEmail, setEmail] = useState("");
-  const [textSenha, setSenha] = useState("");
-  const [textConfSenha, setConfSenha] = "";
-
+  const [textPassword, setPassword] = useState("");
+  const [textConfPassword, setConfPassword] = ("");
+  const [hidePass, setHidePass] = useState(true);
+  const [hideCPass, setHideCPass] = useState(true);
+  
+  
   const [isChecked, setIsChecked] = useState(false);
 
   //adding a data time picker
@@ -217,19 +220,47 @@ export default function Register() {
                       value={textEmail}
                     />
 
-                    <Entrada
-                      text={"Senha"}
-                      label={"Senha: "}
-                      setValue={setSenha}
-                      value={textSenha}
-                    />
+                    <View style={StyleRegister.inputArea}>
+                      <TextInput
+                        style={StyleRegister.inputTeste}
+                        placeholder="Insira sua senha"
+                        placeholderTextColor={"#fff"}
+                        value={textPassword}
+                        onChangeText={(t) => setPassword(t)}
+                        secureTextEntry={hidePass}
+                      />
+                      <TouchableOpacity
+                        style={StyleRegister.icon}
+                        onPress={() => setHidePass(!hidePass)}
+                      >
+                        {hidePass ? (
+                          <Ionicons name="eye" color="#fff" size={25} />
+                        ) : (
+                          <Ionicons name="eye-off" color="#fff" size={25} />
+                        )}
+                      </TouchableOpacity>
+                    </View>
 
-                    <Entrada
-                      text={"Confirmar Senha"}
-                      label={"Confirme sua Senha: "}
-                      setValue={setConfSenha}
-                      value={textConfSenha}
-                    />
+                    <View style={StyleRegister.inputArea}>
+                      <TextInput
+                        style={StyleRegister.inputTeste}
+                        placeholder="Confirme sua senha"
+                        placeholderTextColor={"#fff"}
+                        value={textConfPassword}
+                        onChangeText={(e) => setConfPassword(e)}
+                        secureTextEntry={hideCPass}
+                      />
+                      <TouchableOpacity
+                        style={StyleRegister.icon}
+                        onPress={() => setHideCPass(!hideCPass)}
+                      >
+                        {hideCPass ? (
+                          <Ionicons name="eye" color="#fff" size={25} />
+                        ) : (
+                          <Ionicons name="eye-off" color="#fff" size={25} />
+                        )}
+                      </TouchableOpacity>
+                    </View>
                   </View>
                 </View>
               </View>
@@ -238,12 +269,9 @@ export default function Register() {
                 <TouchableOpacity
                   style={StyleRegister.botaoEntrar}
                   onPress={() => {
-                    if (textUser == "" || textPassword == "") {
-                      alert("Preencha os campos");
-                    } else {
-                      tryLogin(nav.navigate("Register"));
+                   nav.navigate("Login");
                     }
-                  }}
+                  }
                 >
                   <Text style={StyleRegister.textoBotaoEntrar}>Entrar</Text>
                 </TouchableOpacity>
