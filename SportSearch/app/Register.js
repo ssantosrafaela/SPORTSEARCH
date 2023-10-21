@@ -108,7 +108,8 @@ export default function Register() {
               </View>
 
               <View style={styles.meio}>
-                <View style={styles.dadosP}>
+                <View
+                style = {styles.viewDados}>
                   <Text style={styles.dados}>Dados Pessoais:</Text>
                 </View>
 
@@ -202,12 +203,12 @@ export default function Register() {
                     />
                   </View>
                   <View style={styles.meio}>
-                    <View style={styles.dadosE}>
-                      <ScrollView>
+                    <View style = {styles.viewDados}>
+                      
                         <Text style={styles.dados}>
                           Dados de Entrada:
                         </Text>
-                      </ScrollView>
+                      
                     </View>
                   </View>
 
@@ -326,7 +327,7 @@ const styles = StyleSheet.create({
     textShadowColor: "#EF3006",
     textShadowRadius: 4,
     marginTop: 17,
-    marginBottom: 17,
+    marginBottom: 30,
   },
 
   picker: {
@@ -360,10 +361,9 @@ const styles = StyleSheet.create({
   },
   next: {
     backgroundColor: "#1D2F4D",
-
     justifyContent: "center",
     alignItems: "center",
-    paddingLeft: 110,
+
     flexDirection: "row",
     marginTop: 20,
   },
@@ -404,26 +404,17 @@ const styles = StyleSheet.create({
   },
   dados: {
     color: "#fff",
-    fontSize: 18,
+    fontSize: 19,
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
     textShadowRadius: 4,
-    paddingTop: 10,
   },
-  dadosP: {
-    marginTop: 50,
-    paddingTop: 20,
-    paddingRight: 160,
-  },
-  dadosE: {
-    // marginTop: 20,
-    paddingTop: 10,
-  },
+
   botaoEntrar: {
     borderWidth: 1,
     borderRadius: 3,
-    width: 120,
-    height: 35,
+    width: 170,
+    height: 40,
     marginTop: 20,
     borderColor: "#EF3006",
     backgroundColor: "#fff",
@@ -472,10 +463,15 @@ const styles = StyleSheet.create({
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
     textShadowRadius: 4,
-
     },
     checkboxContainer: {
       borderRadius: 5,
+      borderWidth: 1,
       marginRight: 5,
     },
+    viewDados:{
+      justifyContent: 'center',
+      paddingRight: 154,
+      marginTop: 10,
+    }
   });
