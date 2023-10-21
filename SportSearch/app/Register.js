@@ -261,20 +261,20 @@ export default function Register() {
                         )}
                       </TouchableOpacity>
 
-                      <View style={styles.check}>  
-                      <Checkbox
-                        value={isChecked}
-                        onValueChange={setIsChecked}
-                        color="#EF3006"
-                      />
-                      <Text style={styles.textCheck}>Aceito os termos de uso</Text>
-                      </View>
-
                     </View>
 
                   </View>
                 </View>
               </View>
+              <View style={styles.check}>  
+                      <Checkbox
+                        value={isChecked}
+                        onValueChange={setIsChecked}
+                        color="#EF3006"
+                        style={styles.checkboxContainer}
+                      />
+                      <Text style={styles.textCheck}>Aceito os termos de uso</Text>
+                      </View>
 
               <View style={styles.next}>
                 <TouchableOpacity
@@ -459,15 +459,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
- check:{
+  check:{
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 40,
+    marginBottom: 10,
   },
   textCheck:{
     color: '#fff',
-    fontSize: 15,
-    },
+    fontSize: 17,
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
 
+    },
+    checkboxContainer: {
+      borderRadius: 5,
+      marginRight: 5,
+    },
   });
