@@ -1,16 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity as TO } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons, Feather, Entypo } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
-import { useFonts } from 'expo-font';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 export default function Home(){
     const nav = useNavigation();
     return(
         <View style={styles.container}>
-            <Text style={styles.text}>CASACA</Text>
-
+            <Text style={styles.text}>Pintou a notificação é gol do Rony</Text>
 
             <View style={styles.inferior}>
                 <TouchableOpacity onPress = {() => nav.navigate('Home')}>
@@ -34,17 +32,16 @@ export default function Home(){
                 </TouchableOpacity>    
             </View>
 
-            </View>
-
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
+        flex:1,
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor: "#1D2F4D"
+        backgroundColor: "#1D2F4D",
     },
     text:{
         fontSize: 20,
