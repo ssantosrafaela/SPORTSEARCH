@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
 import Entrada from "../components/Entrada";
-import StyleRegister from "../components/StyleRegister";
+//import styles from "../components/styles";
 import { SelectList } from "react-native-dropdown-select-list";
 import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAvoidingView } from "react-native";
@@ -24,7 +24,7 @@ export default function Register() {
   const [textTelefone, setTelefone] = useState("");
   const [textEmail, setEmail] = useState("");
   const [textPassword, setPassword] = useState("");
-  const [textConfPassword, setConfPassword] = ("");
+  const [textConfPassword, setConfPassword] = useState("");
   const [hidePass, setHidePass] = useState(true);
   const [hideCPass, setHideCPass] = useState(true);
   
@@ -87,29 +87,29 @@ export default function Register() {
       <>
         <KeyboardAvoidingView
           behavior={Platform.OS == "ios" ? "padding" : "height"}
-          style={StyleRegister.teste}
+          style={styles.teste}
         >
-          <SafeAreaView style={StyleRegister.teste}>
+          <SafeAreaView style={styles.teste}>
             <ScrollView>
-              <View style={StyleRegister.topBack}>
+              <View style={styles.topBack}>
                 <TouchableOpacity
                   onPress={() => nav.navigate("index")}
-                  style={StyleRegister.back}
+                  style={styles.back}
                 >
                   <Ionicons name="arrow-back" color="#fff" size={30} />
                 </TouchableOpacity>
               </View>
 
-              <View style={StyleRegister.cima}>
-                <Text style={StyleRegister.titulo}>Sport Search</Text>
-                <Text style={StyleRegister.subtitulo}>
+              <View style={styles.cima}>
+                <Text style={styles.titulo}>Sport Search</Text>
+                <Text style={styles.subtitulo}>
                   Insira seus dados para se cadastrar
                 </Text>
               </View>
 
-              <View style={StyleRegister.meio}>
-                <View style={StyleRegister.dadosP}>
-                  <Text style={StyleRegister.dados}>Dados Pessoais:</Text>
+              <View style={styles.meio}>
+                <View style={styles.dadosP}>
+                  <Text style={styles.dados}>Dados Pessoais:</Text>
                 </View>
 
                 <View>
@@ -134,12 +134,12 @@ export default function Register() {
                     value={textTelefone}
                   />
 
-                  <View style={StyleRegister.inputArea}>
+                  <View style={styles.inputArea}>
                     <TouchableOpacity
                       onPress={() => showMode("date")}
-                      style={StyleRegister.input}
+                      style={styles.input}
                     >
-                      <Text style={StyleRegister.text}>
+                      <Text style={styles.text}>
                         Data de nascimento{" "}
                       </Text>
                       <DateTimePicker
@@ -152,7 +152,7 @@ export default function Register() {
                     </TouchableOpacity>
                   </View>
 
-                  <View style={StyleRegister.select}>
+                  <View style={styles.select}>
                     <SelectList
                       value={gnr}
                       setSelected={(e) => setGnr(e)}
@@ -201,28 +201,28 @@ export default function Register() {
                       }}
                     />
                   </View>
-
-                  <View style={StyleRegister.meio}>
-                    <View style={StyleRegister.dadosE}>
+                  <View style={styles.meio}>
+                    <View style={styles.dadosE}>
                       <ScrollView>
-                        <Text style={StyleRegister.dados}>
+                        <Text style={styles.dados}>
                           Dados de Entrada:
                         </Text>
                       </ScrollView>
                     </View>
                   </View>
 
-                  <View style={StyleRegister.meio}>
+                  <View style={styles.meio}>
                     <Entrada
                       text={"Email"}
-                      label={"Email: "}
+                      label={"Digite seu email "}
                       setValue={setEmail}
                       value={textEmail}
+                      keyboardType="email-address"
                     />
 
-                    <View style={StyleRegister.inputArea}>
+                    <View style={styles.inputArea}>
                       <TextInput
-                        style={StyleRegister.inputTeste}
+                        style={styles.inputTeste}
                         placeholder="Insira sua senha"
                         placeholderTextColor={"#fff"}
                         value={textPassword}
@@ -230,7 +230,7 @@ export default function Register() {
                         secureTextEntry={hidePass}
                       />
                       <TouchableOpacity
-                        style={StyleRegister.icon}
+                        style={styles.icon}
                         onPress={() => setHidePass(!hidePass)}
                       >
                         {hidePass ? (
@@ -241,9 +241,9 @@ export default function Register() {
                       </TouchableOpacity>
                     </View>
 
-                    <View style={StyleRegister.inputArea}>
+                    <View style={styles.inputArea}>
                       <TextInput
-                        style={StyleRegister.inputTeste}
+                        style={styles.inputTeste}
                         placeholder="Confirme sua senha"
                         placeholderTextColor={"#fff"}
                         value={textConfPassword}
@@ -251,7 +251,7 @@ export default function Register() {
                         secureTextEntry={hideCPass}
                       />
                       <TouchableOpacity
-                        style={StyleRegister.icon}
+                        style={styles.icon}
                         onPress={() => setHideCPass(!hideCPass)}
                       >
                         {hideCPass ? (
@@ -260,20 +260,31 @@ export default function Register() {
                           <Ionicons name="eye-off" color="#fff" size={25} />
                         )}
                       </TouchableOpacity>
+
+                      <View style={styles.check}>  
+                      <Checkbox
+                        value={isChecked}
+                        onValueChange={setIsChecked}
+                        color="#EF3006"
+                      />
+                      <Text style={styles.textCheck}>Aceito os termos de uso</Text>
+                      </View>
+
                     </View>
+
                   </View>
                 </View>
               </View>
 
-              <View style={StyleRegister.next}>
+              <View style={styles.next}>
                 <TouchableOpacity
-                  style={StyleRegister.botaoEntrar}
+                  style={styles.botaoEntrar}
                   onPress={() => {
                    nav.navigate("Login")
                     }
                   }
                 >
-                  <Text style={StyleRegister.textoBotaoEntrar}>Entrar</Text>
+                  <Text style={styles.textoBotaoEntrar}>Entrar</Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>
@@ -285,3 +296,178 @@ export default function Register() {
     return null;
   }
 }
+const styles = StyleSheet.create({
+  cima: {
+    flex: 0.8,
+    backgroundColor: "#1D2F4D",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 17,
+  },
+  meio: {
+    flex: 1.5,
+    backgroundColor: "#1D2F4D",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  titulo: {
+    marginTop: 30,
+    fontSize: 70,
+    fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
+    color: "#fff",
+    textShadowColor: "#EF3006",
+    textShadowOffset: { width: 4, height: 3 },
+    textShadowRadius: 4,
+  },
+  subtitulo: {
+    color: "#fff",
+    fontSize: 19,
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+    marginTop: 17,
+    marginBottom: 17,
+  },
+
+  picker: {
+    backgroundColor: "#1D2F4D",
+    borderColor: "#EF3006",
+    color: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "30%",
+    height: 5,
+  },
+  text: {
+    color: "white",
+  },
+  teste: {
+    flex: 1,
+    backgroundColor: "#1D2F4D",
+  },
+  select: {
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  topBack: {
+    backgroundColor: "#1D2F4D",
+  },
+  back: {
+    JustifyContent: "left",
+    alignItems: "left",
+    backgroundColor: "#1D2F4D",
+    paddingLeft: 10,
+  },
+  next: {
+    backgroundColor: "#1D2F4D",
+
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 110,
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  entrar: {
+    color: "#EF3006",
+    fontSize: 30,
+    paddingRight: 10,
+    paddingLeft: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: "#EF3006",
+    backgroundColor: "#fff",
+  },
+  input: {
+    flexDirection: "row",
+  },
+  inputArea: {
+    flexDirection: "row",
+    width: 270,
+    backgroundColor: "#1D2F4D",
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "#EF3006",
+    height: 45,
+    alignItems: "center",
+    marginTop: 15,
+    marginBottom: 5,
+  },
+  text: {
+    fontSize: 15,
+    color: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 18,
+    paddingTop: 7.5,
+  },
+  dados: {
+    color: "#fff",
+    fontSize: 18,
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+    paddingTop: 10,
+  },
+  dadosP: {
+    marginTop: 50,
+    paddingTop: 20,
+    paddingRight: 160,
+  },
+  dadosE: {
+    // marginTop: 20,
+    paddingTop: 10,
+  },
+  botaoEntrar: {
+    borderWidth: 1,
+    borderRadius: 3,
+    width: 120,
+    height: 35,
+    marginTop: 20,
+    borderColor: "#EF3006",
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textoBotaoEntrar: {
+    color: "#EF3006",
+    fontSize: 18,
+  },
+  inputArea: {
+    flexDirection: "row",
+    width: 270,
+    backgroundColor: "#1D2F4D",
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "#EF3006",
+    height: 40,
+    alignItems: "center",
+    marginBottom: 15,
+    marginTop: 15,
+  },
+  inputTeste: {
+    width: 220,
+    height: 40,
+    color: "#fff",
+    paddingLeft: 15,
+    fontSize: 15,
+  },
+  icon: {
+    width: "15%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+ check:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  textCheck:{
+    color: '#fff',
+    fontSize: 15,
+    },
+
+  });

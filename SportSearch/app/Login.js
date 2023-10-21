@@ -5,10 +5,11 @@ import {
   Text,
   TouchableOpacity,
   KeyboardAvoidingView,
+  StyleSheet
 } from "react-native";
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
-import MainStyle from "../components/StyleLogin";
+//import styles from "../components/StyleLogin";
 import { Ionicons } from "@expo/vector-icons";
 import {
   emailLogin,
@@ -16,8 +17,6 @@ import {
   createUser,
   signOutFirebase,
 } from "../connections/firebase-auth";
-import { ScrollView } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Login() {
   const nav = useNavigation();
@@ -53,26 +52,26 @@ export default function Login() {
   if (fontsLoaded) {
     return (
       <>
-        <View style={MainStyle.container}>
+        <View style={styles.container}>
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "padding" : "height"}
             style={{ backgroundColor: "#1D2F4D" }}
           >
-            <View style={MainStyle.topBack}>
+            <View style={styles.topBack}>
               <TouchableOpacity
                 onPress={() => nav.navigate("index")}
-                style={MainStyle.back}
+                style={styles.back}
               >
                 <Ionicons name="arrow-back" color="#fff" size={30} />
               </TouchableOpacity>
             </View>
-            <View style={MainStyle.cima}>
-              <Text style={MainStyle.titulo}>Sport Search</Text>
-              <Text style={MainStyle.subtitulo}>Entre para continuar</Text>
+            <View style={styles.cima}>
+              <Text style={styles.titulo}>Sport Search</Text>
+              <Text style={styles.subtitulo}>Entre para continuar</Text>
             </View>
-            <View style={MainStyle.meio}>
+            <View style={styles.meio}>
               <TextInput
-                style={MainStyle.input}
+                style={styles.input}
                 onChangeText={(e) => setUser(e)}
                 value={textUser}
                 placeholder="E-mail"
@@ -80,9 +79,9 @@ export default function Login() {
                 keyboardType="email-address"
               />
 
-              <View style={MainStyle.inputArea}>
+              <View style={styles.inputArea}>
                 <TextInput
-                  style={MainStyle.inputTeste}
+                  style={styles.inputTeste}
                   placeholder="Insira sua senha"
                   placeholderTextColor={"#fff"}
                   value={textPassword}
@@ -90,7 +89,7 @@ export default function Login() {
                   secureTextEntry={hidePass}
                 />
                 <TouchableOpacity
-                  style={MainStyle.icon}
+                  style={styles.icon}
                   onPress={() => setHidePass(!hidePass)}
                 >
                   {hidePass ? (
@@ -102,7 +101,7 @@ export default function Login() {
               </View>
 
               <TouchableOpacity
-                style={MainStyle.botaoEntrar}
+                style={styles.botaoEntrar}
                 onPress={() => {
                   if (textUser == "" || textPassword == "") {
                     alert("Preencha os campos");
@@ -111,12 +110,12 @@ export default function Login() {
                   }
                 }}
               >
-                <Text style={MainStyle.textoBotaoEntrar}>Entrar</Text>
+                <Text style={styles.textoBotaoEntrar}>Entrar</Text>
               </TouchableOpacity>
             </View>
 
-            <View style={MainStyle.baixo}>
-              <Text style={MainStyle.textoBaixo}>Esqueceu a senha?</Text>
+            <View style={styles.baixo}>
+              <Text style={styles.textoBaixo}>Esqueceu a senha?</Text>
             </View>
           </KeyboardAvoidingView>
         </View>
@@ -126,3 +125,125 @@ export default function Login() {
     return null;
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#1D2F4D",
+    flex: 1,
+  },
+  cima: {
+    width: "100%",
+    height: "45%",
+    backgroundColor: "#1D2F4D",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 50,
+  },
+  meio: {
+    backgroundColor: "#1D2F4D",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: 130,
+  },
+  baixo: {
+    backgroundColor: "#1D2F4D",
+    alignItems: "center",
+  },
+  titulo: {
+    fontSize: 75,
+    fontFamily: "Archivo_ExtraCondensed-BlackItalic.ttf",
+    color: "#fff",
+    textShadowColor: "#EF3006",
+    textShadowOffset: { width: 4, height: 3 },
+    textShadowRadius: 4,
+  },
+  subtitulo: {
+    fontSize: 20,
+    color: "white",
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+    marginTop: 10,
+  },
+  input: {
+    borderWidth: 1,
+    width: 270,
+    height: 40,
+    borderRadius: 10,
+    borderColor: "#EF3006",
+    marginBottom: 10,
+    paddingLeft: 10,
+    color: "#fff",
+    fontSize: 18, 
+  },
+  inputArea: {
+    flexDirection: "row",
+    width: 270,
+    backgroundColor: "#1D2F4D",
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "#EF3006",
+    height: 40,
+    alignItems: "center",
+  },
+  inputTeste: {
+    width: 220,
+    height: 50,
+    color: "#fff",
+    padding: 10,
+    fontSize: 18,
+  },
+  icon: {
+    width: "15%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  botaoEntrar: {
+    borderWidth: 1,
+    borderRadius: 3,
+    width: 120,
+    height: 35,
+    marginTop: 20,
+    borderColor: "#EF3006",
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textoBotaoEntrar: {
+    color: "#EF3006",
+    fontSize: 18,
+  },
+  botaoEnd: {
+    position: "absolute",
+    top: 120,
+    right: 65,
+  },
+  textoBaixo: {
+    marginBottom: 20,
+    color: "#fff",
+    fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+    textShadowColor: "#EF3006",
+    textShadowRadius: 4,
+    fontSize: 17,
+    textShadowOffset: { width: 4, height: 4 },
+  },
+  back: {
+    JustifyContent: 'left',
+    alignItems: 'left',
+    backgroundColor: '#1D2F4D',
+    marginRight: 40,
+    paddingTop: 45,
+    paddingLeft: 10,
+},
+ topBack:{
+  backgroundColor: '#1D2F4D',
+ },
+ scrollview:{
+  backgroundColor: '#1D2F4D',
+  marginTop: 30,
+ },
+ scrollviewContainer:{
+  backgroundColor: '#1D2F4D',
+ },
+});
