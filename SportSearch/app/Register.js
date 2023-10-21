@@ -269,7 +269,7 @@ export default function Register() {
                 <TouchableOpacity
                   style={StyleRegister.botaoEntrar}
                   onPress={() => {
-                   nav.navigate("Login");
+                   nav.navigate("Login")
                     }
                   }
                 >
