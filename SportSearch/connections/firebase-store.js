@@ -39,17 +39,16 @@ const addUserFirestore = async (
     userCredential: userCredential,
     name: nome,
     lastName: sobrenome,
-    birth: dataNascimento,
     phone: telefone,
-    genro: genero,
-    state: estado,
-    city: cidade,
+    birth: dataNascimento,
+    genre: genero,
     email: email,
+    password: senha,
   };
   return await setDoc(doc(db, "users", uid), data);
 };
 
-export { addDogFirebase, addUserFirestore };
+export { addUserFirestore };
 
 // usuário oferecer esportes e poder participar de outros esportes oferecidos por outros usuários (ex: futebol, vôlei, basquete, etc). 
 // O usuário poderá oferecer um esporte e definir o local, data e horário que ele será realizado. 

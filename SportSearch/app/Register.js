@@ -12,6 +12,11 @@ import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Checkbox from "expo-checkbox";
 
+import { emailLogin, auth, createUser, signOutFirebase } from "../connections/firebase-auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AddUserFirestore } from '../connections/firebase-store'
+
+
 export default function Register() {
   const nav = useNavigation();
   const [fontsLoaded] = useFonts({
@@ -30,6 +35,21 @@ export default function Register() {
   
   
   const [isChecked, setIsChecked] = useState(false);
+
+  const tryCreateUser = async () => {
+    if (textPassword != textConfPassword) {
+      alert("senha tao diferente sem nocaaaaaaaaaaao");
+      return;
+    }
+    const userCredential = await createUser(textEmail, textPassword);
+    if (userCredential){
+      await AddUserFirestore(userCredential.user.uid, textNome, textSobrenome, textTelefone, date, selected, textEmail, textPassword);
+      await AsyncStorage.setItem('user', userCredential.user.uid);
+      nav.navigate('Home');
+    }else{
+      alert('Deu errado hahahahahaha');
+    }
+  } 
 
   //adding a data time picker
   const [date, setDate] = useState(new Date());
@@ -280,12 +300,10 @@ export default function Register() {
               <View style={styles.next}>
                 <TouchableOpacity
                   style={styles.botaoEntrar}
-                  onPress={() => {
-                   nav.navigate("Home")
-                    }
+                  onPress={() => {tryCreateUser()}
                   }
                 >
-                  <Text style={styles.textoBotaoEntrar}>Entrar</Text>
+                  <Text style={styles.textoBotaoEntrar}>Cadastrar</Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>
@@ -297,6 +315,7 @@ export default function Register() {
     return null;
   }
 }
+
 const styles = StyleSheet.create({
   cima: {
     flex: 0.8,
