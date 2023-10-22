@@ -43,7 +43,7 @@ export default function Register() {
     }
     const userCredential = await createUser(textEmail, textPassword);
     if (userCredential){
-      await AddUserFirestore(userCredential.user.uid, textNome, textSobrenome, textTelefone, date, selected, textEmail, textPassword);
+      await AddUserFirestore(userCredential.user.uid, name, lastName, phone, profile);
       await AsyncStorage.setItem('user', userCredential.user.uid);
       nav.navigate('Home');
     }else{
