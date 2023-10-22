@@ -29,7 +29,7 @@ export default function Open() {
         <View style={styles.meio}>
           <TouchableOpacity
             style={styles.botao}
-            onPress={() => nav.navigate("Login")}
+            onPress={() => nav.navigate("Profile")}
           >
             <Text style={styles.textoBotao}>Entrar</Text>
           </TouchableOpacity>

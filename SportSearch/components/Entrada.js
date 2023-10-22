@@ -1,4 +1,4 @@
-import { TextInput, StyleSheet, Text } from "react-native";
+import { TextInput, StyleSheet} from "react-native";
 
 export default function Entrada(props) {
 
