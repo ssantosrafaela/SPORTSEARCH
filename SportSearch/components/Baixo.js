@@ -22,10 +22,6 @@ export default function Baixo(props){
                     <Ionicons name="search" size={31} color='white' />
                 </TouchableOpacity>
 
-                {/* <TouchableOpacity style = {styles.icon} onPress={() => nav.navigate('New')}>
-                    <Entypo name="plus" size={25} color='white' />
-                </TouchableOpacity> */}
-
                 <TouchableOpacity onPress={() => nav.navigate('Profile')}>
                     <Ionicons name="person" size={30} color='white' />
                 </TouchableOpacity>    

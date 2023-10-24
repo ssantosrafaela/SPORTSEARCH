@@ -16,11 +16,11 @@ const addUserFirestore = async (
   name,
   lasName,
   phone,
-  state, 
+  state,
   profile
 ) => {
   const uid = auth.currentUser.uid;
-   const data = {
+  const data = {
     name: name,
     lastName: lasName,
     phone: phone,
@@ -30,7 +30,7 @@ const addUserFirestore = async (
   return await setDoc(doc(db, "users", uid), data);
 };
 
-const getProfileFromUid = async (uia) =>{
+const getProfileFromUid = async (uia) => {
   const docRef = doc(db, "users", uia);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
@@ -39,9 +39,9 @@ const getProfileFromUid = async (uia) =>{
   } else {
     console.log("No such document!");
   }
-}
+};
 
 export { addUserFirestore, getProfileFromUid };
 
-// usuário oferecer esportes e poder participar de outros esportes oferecidos por outros usuários (ex: futebol, vôlei, basquete, etc). 
-// O usuário poderá oferecer um esporte e definir o local, data e horário que ele será realizado. 
+// usuário oferecer esportes e poder participar de outros esportes oferecidos por outros usuários (ex: futebol, vôlei, basquete, etc).
+// O usuário poderá oferecer um esporte e definir o local, data e horário que ele será realizado.
