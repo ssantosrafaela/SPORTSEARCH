@@ -24,12 +24,12 @@ export default function Register() {
     "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
 
-  const [textNome, setNome] = useState("");
-  const [textSobrenome, setSobrenome] = useState("");
-  const [textTelefone, setTelefone] = useState("");
+  const [textNome, setNome] = useState("joao");
+  const [textSobrenome, setSobrenome] = useState("ribeiro");
+  const [textTelefone, setTelefone] = useState("53999916750");
   const [textEmail, setEmail] = useState("");
-  const [textPassword, setPassword] = useState("");
-  const [textConfPassword, setConfPassword] = useState("");
+  const [textPassword, setPassword] = useState("123456");
+  const [textConfPassword, setConfPassword] = useState("123456");
   const [hidePass, setHidePass] = useState(true);
   const [hideCPass, setHideCPass] = useState(true);
   

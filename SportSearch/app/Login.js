@@ -106,7 +106,7 @@ export default function Login() {
                   if (textUser == "" || textPassword == "") {
                     alert("Preencha os campos");
                   } else {
-                    tryLogin(nav.navigate("Register"));
+                    tryLogin(nav.navigate("Home"));
                   }
                 }}
               >
