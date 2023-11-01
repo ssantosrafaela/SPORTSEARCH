@@ -13,19 +13,20 @@ const db = getFirestore(app);
 //FUNCAO PARA ADD USUARIO NO FIRESTORE
 const addUserFirestore = async (
   userCredential,
+  email,
   name,
   lasName,
   phone,
-  state,
   profile
 ) => {
   const uid = auth.currentUser.uid;
   const data = {
+    uid: uid,
     name: name,
     lastName: lasName,
     phone: phone,
-    //state: state,
     profile: profile,
+    email: email,
   };
   return await setDoc(doc(db, "users", uid), data);
 };

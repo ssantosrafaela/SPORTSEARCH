@@ -14,7 +14,7 @@ import Checkbox from "expo-checkbox";
 
 import { emailLogin, auth, createUser, signOutFirebase } from "../connections/firebase-auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AddUserFirestore } from '../connections/firebase-store'
+import { addUserFirestore } from '../connections/firebase-store'
 
 
 export default function Register() {
@@ -43,15 +43,14 @@ export default function Register() {
     }
     const userCredential = await createUser(textEmail, textPassword);
     if (userCredential){
-      await AddUserFirestore(userCredential.user.uid, name, lastName, phone, profile);
-      await AsyncStorage.setItem('user', userCredential.user.uid);
+     addUserFirestore(userCredential.user.uid, textNome, textEmail, textSobrenome, textTelefone, textPassword);
+      //await AsyncStorage.setItem('user', userCredential.user.uid);
       nav.navigate('Home');
     }else{
       alert('Deu errado hahahahahaha');
     }
   } 
 
-  //adding a data time picker
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
   const [mode, setMode] = useState("date");
