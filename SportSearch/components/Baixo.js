@@ -18,10 +18,6 @@ export default function Baixo(props){
                      name="bell" size={29} color='white' />
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => nav.navigate('Search')}>
-                    <Ionicons name="search" size={31} color='white' />
-                </TouchableOpacity>
-
                 <TouchableOpacity onPress={() => nav.navigate('Profile')}>
                     <Ionicons name="person" size={30} color='white' />
                 </TouchableOpacity>    
