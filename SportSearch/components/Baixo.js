@@ -3,27 +3,22 @@ import { StyleSheet, TouchableOpacity, View, } from 'react-native';
 import { Ionicons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
 
-
 export default function Baixo(props){
     const nav = useNavigation();
     return(
         <>
         <View style={styles.baixo}>
                 <TouchableOpacity onPress = {() => nav.navigate('Home')}>
-                    <Entypo name="home" size={30} color='#fff' />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => nav.navigate('Search')}>
-                    <Ionicons name="search" size={30} color='white' />
+                    <Entypo name="home" size={30} color='#1D2F4D' />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => nav.navigate('Notification')}>
                     <MaterialCommunityIcons
-                     name="bell" size={29} color='white' />
+                     name="bell" size={29} color='#1D2F4D' />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => nav.navigate('Profile')}>
-                    <Ionicons name="person" size={30} color='white' />
+                    <Ionicons name="person" size={30} color='#1D2F4D' />
                 </TouchableOpacity>    
             </View>
         </>
@@ -32,10 +27,14 @@ export default function Baixo(props){
 const styles = StyleSheet.create({
     baixo:{
         width: '100%',
-        height: '8%',
-        alignItems: 'center',
+        height: 70,
+        paddingTop: 10,
+        paddingBottom: 15,
+        alignItems: 'flex-start',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        backgroundColor: 'rgba(3, 48, 252, 0.1)'
+        backgroundColor: '#EF3006',
+        borderRadius: 15,
+        
     }
 })

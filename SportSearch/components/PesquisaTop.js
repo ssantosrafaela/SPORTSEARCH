@@ -28,9 +28,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '8%',
         alignItems: 'center',
-        flexDirection: 'row',
         justifyContent: 'space-evenly',
-        backgroundColor: 'rgba(3, 48, 252, 0.1)'
     },
     box: {
         paddingLeft: 18,

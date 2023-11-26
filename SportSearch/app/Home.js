@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  
+
   KeyboardAvoidingView,
 } from "react-native";
 import { Ionicons, Feather, Entypo } from "@expo/vector-icons";
@@ -30,11 +30,7 @@ export default function Home() {
         behavior={Platform.OS == "ios" ? "padding" : "height"}
         style={styles.containerScrollView}
       >
-        <SafeAreaView style={styles.containerScrollView}>
           <View style={styles.container}>
-            <View style={styles.cima}>
-              <Text style={styles.titulo}> Sport Search </Text>
-            </View>
 
             <PesquisaTop 
             text={"Nome"}
@@ -43,12 +39,13 @@ export default function Home() {
             value={textPesquisa}/>
 
             <TouchableOpacity style={styles.button}>
-            <Entypo name="plus" size={40} color='white' style = {styles.buttonInside}/>
+            <Entypo name="plus" size={40} color='#1D2F4D' style = {styles.buttonInside}/>
             </TouchableOpacity>
 
-            <Baixo />
           </View>
-        </SafeAreaView>
+          <View style={styles.baixo}>
+            <Baixo />
+            </View>
       </KeyboardAvoidingView>
     );
   } else {
@@ -58,14 +55,14 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "100%",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#1D2F4D",
   },
   containerScrollView: {
     flex: 1,
-    backgroundColor: "#1D2F4D",
+    backgroundColor: "pink",
   },
   cima: {
     width: "100%",
@@ -84,18 +81,22 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   button:{
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 30,
     borderColor: '#EF3006',
     flexDirection: 'row',
+    backgroundColor: '#EF3006',
    // height: "8%",
    // width: '8%'
-   justifyContent: 'right', 
-   alignItems: 'right',
+//    justifyContent: 'right', 
+//    alignItems: 'right',
   },
   buttonInside:{
     padding: 10,
     justifyContent: 'left'
+  },
+  baixo:{
+    backgroundColor: '#1D2F4D',
   }
   
 });
