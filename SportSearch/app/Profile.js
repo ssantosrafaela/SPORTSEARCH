@@ -15,24 +15,21 @@ export default function Home() {
     "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
 
-  if (fontsLoaded) {
-    return (
-      <>
-        <SafeAreaView style={styles.container}>
-          <ScrollView style={styles.scroll}>
-            <View style={styles.container}>
-              <View style={styles.cima}>
-                <Text>Perfil</Text>
-              </View>
-              <Baixo />
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </>
-    );
-  } else {
-    return null;
-  }
+  return (
+    <>
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scroll}>
+          <View style={styles.cima}>
+            <Text style={styles.cima}>Teste</Text>
+          </View>
+
+          <View style={styles.baixo}>
+            <Baixo />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -40,9 +37,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#1D2F4D",
+    backgroundColor: "#1d2f4d",
   },
   scroll: {
-    backgroundColor: "#fff",
+    backgroundColor: "#1d2f4d",
+  },
+  cima: {
+    backgroundColor: "pink",
+    width: "100%",
+  },
+  baixo: {
+    backgroundColor: "#1d2f4d",
   },
 });

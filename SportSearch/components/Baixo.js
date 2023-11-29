@@ -9,16 +9,16 @@ export default function Baixo(props){
         <>
         <View style={styles.baixo}>
                 <TouchableOpacity onPress = {() => nav.navigate('Home')}>
-                    <Entypo name="home" size={30} color='#1D2F4D' />
+                    <Entypo name="home" size={30} color='white' />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => nav.navigate('Notification')}>
                     <MaterialCommunityIcons
-                     name="bell" size={29} color='#1D2F4D' />
+                     name="bell" size={29} color='white' />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => nav.navigate('Profile')}>
-                    <Ionicons name="person" size={30} color='#1D2F4D' />
+                    <Ionicons name="person" size={30} color='white' />
                 </TouchableOpacity>    
             </View>
         </>

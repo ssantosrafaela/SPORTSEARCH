@@ -14,6 +14,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import PesquisaTop from "../components/PesquisaTop";
 import Baixo from "../components/Baixo";
+import Adiciona from "../components/Adiciona";
 
 
 export default function Home() {
@@ -32,17 +33,20 @@ export default function Home() {
       >
           <View style={styles.container}>
 
+            <View style={styles.cima}>
+              <Text style={styles.titulo}>Página Inicial</Text>
+            </View>
+
             <PesquisaTop 
             text={"Nome"}
             label="Pesquisar"
             setValue={setPesquisa}
             value={textPesquisa}/>
 
-            <TouchableOpacity style={styles.button}>
-            <Entypo name="plus" size={40} color='#1D2F4D' style = {styles.buttonInside}/>
-            </TouchableOpacity>
+
 
           </View>
+          <Adiciona />
           <View style={styles.baixo}>
             <Baixo />
             </View>
@@ -67,33 +71,19 @@ const styles = StyleSheet.create({
   cima: {
     width: "100%",
     height: "6%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   meio: {
     width: "100%",
   },
   titulo: {
-    color: "#fff",
-    fontSize: 19,
+    fontSize: 20,
+    color: "white",
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#EF3006",
     textShadowRadius: 4,
-    marginTop: 17,
-    marginBottom: 30,
-  },
-  button:{
-    borderWidth: 2,
-    borderRadius: 30,
-    borderColor: '#EF3006',
-    flexDirection: 'row',
-    backgroundColor: '#EF3006',
-   // height: "8%",
-   // width: '8%'
-//    justifyContent: 'right', 
-//    alignItems: 'right',
-  },
-  buttonInside:{
-    padding: 10,
-    justifyContent: 'left'
+    marginTop: 10,
   },
   baixo:{
     backgroundColor: '#1D2F4D',

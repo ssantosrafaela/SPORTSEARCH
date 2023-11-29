@@ -16,8 +16,8 @@ export default function PesquisaTop(props){
         placeholder={props.label}
         placeholderTextColor={'#fff'}
       />
-                <TouchableOpacity>
-                    <Ionicons name="search" size={30} color='white' />
+                <TouchableOpacity style={styles.search}>
+                    <Ionicons name="search" size={29} color='white' />
                 </TouchableOpacity>    
             </View>
         </>
@@ -45,5 +45,10 @@ const styles = StyleSheet.create({
       text: {
         color: "white",
         fontSize: 15,
+      },
+      search: {
+        position: "absolute",
+        right: 30,
+        top: 35,
       },
 })
