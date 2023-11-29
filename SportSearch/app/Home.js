@@ -15,7 +15,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PesquisaTop from "../components/PesquisaTop";
 import Baixo from "../components/Baixo";
 import Adiciona from "../components/Adiciona";
-
+import Evento from '../components/Evento'
 
 export default function Home() {
   const nav = useNavigation();
@@ -42,10 +42,9 @@ export default function Home() {
             label="Pesquisar"
             setValue={setPesquisa}
             value={textPesquisa}/>
-
-
-
           </View>
+      <Evento />
+
           <Adiciona />
           <View style={styles.baixo}>
             <Baixo />
