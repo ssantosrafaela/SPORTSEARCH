@@ -9,6 +9,7 @@ import {
 import { useNavigation } from "expo-router";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFonts } from "expo-font";
+import { KeyboardAvoidingView } from "react-native";
 
 export default function DadosEventos() {
   const nav = useNavigation();
@@ -30,84 +31,89 @@ export default function DadosEventos() {
   if (fontsLoaded) {
     return (
       <>
-        <View style={styles.container}>
-          <View style={styles.cima}>
-            <Text style={styles.titulo}>Insira os dados do seu Evento</Text>
-          </View>
+        <KeyboardAvoidingView
+          behavior={Platform.OS == "ios" ? "padding" : "height"}
+          style={styles.teste}
+        >
+          <View style={styles.container}>
+            <View style={styles.cima}>
+              <Text style={styles.titulo}>Insira os dados do seu Evento</Text>
+            </View>
 
-          <View style={styles.meio}>
-            <Text style={styles.texto}>Nome do Evento</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Nome"
-              onChangeText={(text) => setNome(text)}
-              setValue={setNome}
-              value={nome}
-            />
-            <Text style={styles.texto}>Data do Evento</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Data"
-              onChangeText={(text) => setData(text)}
-              setValue={setData}
-              value={data}
-            />
-            <Text style={styles.texto}>Local do Evento</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Local"
-              onChangeText={(text) => setLocal(text)}
-              setValue={setLocal}
-              value={local}
-            />
-            <Text style={styles.texto}>Descrição do Evento</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Descrição"
-              onChangeText={(text) => setDescricao(text)}
-              setValue={setDescricao}
-              value={descricao}
-            />
-            <Text style={styles.texto}>Modalidade</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Modalidade"
-              onChangeText={(text) => setModalidade(text)}
-              setValue={setModalidade}
-              value={modalidade}
-            />
-            <Text style={styles.texto}>Horário do Evento</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Horário"
-              onChangeText={(text) => setHorario(text)}
-              setValue={setHorario}
-              value={horario}
-            />
-            <Text style={styles.texto}>Quantidade de Vagas</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Vagas"
-              onChangeText={(text) => setVagas(text)}
-              setValue={setVagas}
-              value={vagas}
-            />
-            <Text style={styles.texto}>Valor do Evento</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Valor"
-              onChangeText={(text) => setValor(text)}
-              setValue={setValor}
-              value={valor}
-            />
-          </View>
+            <View style={styles.meio}>
+              <Text style={styles.texto}>Nome do Evento</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Nome"
+                onChangeText={(text) => setNome(text)}
+                setValue={setNome}
+                value={nome}
+              />
+              <Text style={styles.texto}>Data do Evento</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Data"
+                onChangeText={(text) => setData(text)}
+                setValue={setData}
+                value={data}
+              />
+              <Text style={styles.texto}>Local do Evento</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Local"
+                onChangeText={(text) => setLocal(text)}
+                setValue={setLocal}
+                value={local}
+              />
+              <Text style={styles.texto}>Descrição do Evento</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Descrição"
+                onChangeText={(text) => setDescricao(text)}
+                setValue={setDescricao}
+                value={descricao}
+              />
+              <Text style={styles.texto}>Modalidade</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Modalidade"
+                onChangeText={(text) => setModalidade(text)}
+                setValue={setModalidade}
+                value={modalidade}
+              />
+              <Text style={styles.texto}>Horário do Evento</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Horário"
+                onChangeText={(text) => setHorario(text)}
+                setValue={setHorario}
+                value={horario}
+              />
+              <Text style={styles.texto}>Quantidade de Vagas</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Vagas"
+                onChangeText={(text) => setVagas(text)}
+                setValue={setVagas}
+                value={vagas}
+              />
+              <Text style={styles.texto}>Valor do Evento</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Valor"
+                onChangeText={(text) => setValor(text)}
+                setValue={setValor}
+                value={valor}
+              />
+            </View>
 
-          <View style={styles.baixo}>
-            <TouchableOpacity>
-              <Text style={styles.texto}>Adicionar</Text>
-            </TouchableOpacity>
+            <View style={styles.baixo}>
+              <TouchableOpacity>
+                <Text>Adicionar</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </>
     );
   } else {
@@ -117,6 +123,7 @@ export default function DadosEventos() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: "#1d2f4d",
     width: "100%",
   },
