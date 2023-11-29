@@ -15,17 +15,17 @@ import { addEventFirestore } from "../connections/firebase-store";
 export default function DadosEventos() {
   const nav = useNavigation();
 
-  const [nome, setNome] = React.useState("");
-  const [data, setData] = React.useState("");
-  const [local, setLocal] = React.useState("");
-  const [observacoes, setObservacoes] = React.useState("");
-  const [modalidade, setModalidade] = React.useState("");
-  const [horario, setHorario] = React.useState("");
-  const [vagas, setVagas] = React.useState("");
-  const [valor, setValor] = React.useState("");
-  const [cidade, setCidade] = React.useState("");
-  const [estado, setEstado] = React.useState("");
-  const [atualPessoas, setAtualPessoas] = React.useState("");
+  const [nome, setNome] = React.useState("qaaa");
+  const [data, setData] = React.useState("aaaaaaa");
+  const [local, setLocal] = React.useState("aaaaaaa");
+  const [observacoes, setObservacoes] = React.useState("aaaaaaaa");
+  const [modalidade, setModalidade] = React.useState("aaaaaaaaa");
+  const [horario, setHorario] = React.useState("aaaaaaaaa");
+  const [vagas, setVagas] = React.useState("aaaaaaaa");
+  const [valor, setValor] = React.useState("aaaaaaaaaaaaa");
+  const [cidade, setCidade] = React.useState("aaaaa");
+  const [estado, setEstado] = React.useState("aaaaaaaaa");
+  const [atualPessoas, setAtualPessoas] = React.useState("aaaaaaaa");
 
   const [fontsLoaded] = useFonts({
     "Archivo_ExtraCondensed-BlackItalic.ttf": require("../assets/fonts/Archivo_ExtraCondensed-BlackItalic.ttf"),
@@ -156,7 +156,7 @@ export default function DadosEventos() {
                 </View>
 
                 <View style={styles.baixo}>
-                  <TouchableOpacity style={styles.botaoAdc} onPress={() => {tryCreateEvent()}}>
+                  <TouchableOpacity style={styles.botaoAdc} onPress={() => {tryCreateEvent(); nav.navigate("Home")}}>
                     <Text style={styles.textoBotao}>Adicionar</Text>
                   </TouchableOpacity>
                 </View>

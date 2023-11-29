@@ -58,7 +58,7 @@ const addEventFirestore = async (
     valor: valor,
     observacoes: observacoes,
   };
-  return await addDoc(doc(db, "users", uid), data);
+  return await addDoc(collection(db, "eventos"), data);
 };
 
 const getProfileFromUid = async (uia) => {
