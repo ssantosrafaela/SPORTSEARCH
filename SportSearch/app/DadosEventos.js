@@ -31,7 +31,7 @@ export default function DadosEventos() {
   if (fontsLoaded) {
     return (
       <>
-      <ScrollView style={styles.scrollviewContainer}>
+        <ScrollView style={styles.scrollviewContainer}>
           <View style={styles.container}>
             <View style={styles.cima}>
               <Text style={styles.titulo}>Insira os dados do seu Evento</Text>
@@ -46,30 +46,6 @@ export default function DadosEventos() {
                 setValue={setNome}
                 value={nome}
               />
-              <Text style={styles.texto}>Data do Evento</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Data"
-                onChangeText={(text) => setData(text)}
-                setValue={setData}
-                value={data}
-              />
-              <Text style={styles.texto}>Local do Evento</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Local"
-                onChangeText={(text) => setLocal(text)}
-                setValue={setLocal}
-                value={local}
-              />
-              <Text style={styles.texto}>Descrição do Evento</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Descrição"
-                onChangeText={(text) => setDescricao(text)}
-                setValue={setDescricao}
-                value={descricao}
-              />
               <Text style={styles.texto}>Modalidade</Text>
               <TextInput
                 style={styles.input}
@@ -78,15 +54,7 @@ export default function DadosEventos() {
                 setValue={setModalidade}
                 value={modalidade}
               />
-              <Text style={styles.texto}>Horário do Evento</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Horário"
-                onChangeText={(text) => setHorario(text)}
-                setValue={setHorario}
-                value={horario}
-              />
-              <Text style={styles.texto}>Quantidade de Vagas</Text>
+              <Text style={styles.texto}>Vagas</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Vagas"
@@ -94,13 +62,46 @@ export default function DadosEventos() {
                 setValue={setVagas}
                 value={vagas}
               />
-              <Text style={styles.texto}>Valor do Evento</Text>
+              <Text style={styles.texto}>Data</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Data"
+                onChangeText={(text) => setData(text)}
+                setValue={setData}
+                value={data}
+              />
+              <Text style={styles.texto}>Local</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Local"
+                onChangeText={(text) => setLocal(text)}
+                setValue={setLocal}
+                value={local}
+              />
+
+              <Text style={styles.texto}>Horário</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Horário"
+                onChangeText={(text) => setHorario(text)}
+                setValue={setHorario}
+                value={horario}
+              />
+              <Text style={styles.texto}>Valor</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Valor"
                 onChangeText={(text) => setValor(text)}
                 setValue={setValor}
                 value={valor}
+              />
+              <Text style={styles.texto}>Descrição</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Descrição"
+                onChangeText={(text) => setDescricao(text)}
+                setValue={setDescricao}
+                value={descricao}
               />
             </View>
 
@@ -110,7 +111,7 @@ export default function DadosEventos() {
               </TouchableOpacity>
             </View>
           </View>
-          </ScrollView>
+        </ScrollView>
       </>
     );
   } else {
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  botaoAdc:{
+  botaoAdc: {
     flex: "start",
     borderWidth: 1.3,
     width: 250,
@@ -177,10 +178,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#fff",
-
   },
-  textoBotao:{
+  textoBotao: {
     color: "#EF3006",
     fontSize: 18,
-  }
-  });
+  },
+});
