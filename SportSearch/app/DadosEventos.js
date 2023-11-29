@@ -31,10 +31,7 @@ export default function DadosEventos() {
   if (fontsLoaded) {
     return (
       <>
-        <KeyboardAvoidingView
-          behavior={Platform.OS == "ios" ? "padding" : "height"}
-          style={styles.teste}
-        >
+      <ScrollView style={styles.scrollviewContainer}>
           <View style={styles.container}>
             <View style={styles.cima}>
               <Text style={styles.titulo}>Insira os dados do seu Evento</Text>
@@ -108,12 +105,12 @@ export default function DadosEventos() {
             </View>
 
             <View style={styles.baixo}>
-              <TouchableOpacity>
-                <Text>Adicionar</Text>
+              <TouchableOpacity style={styles.botaoAdc}>
+                <Text style={styles.textoBotao}>Adicionar</Text>
               </TouchableOpacity>
             </View>
           </View>
-        </KeyboardAvoidingView>
+          </ScrollView>
       </>
     );
   } else {
@@ -123,6 +120,11 @@ export default function DadosEventos() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#1d2f4d",
+    width: "100%",
+  },
+  scrollviewContainer: {
     flex: 1,
     backgroundColor: "#1d2f4d",
     width: "100%",
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "white",
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
-    textShadowColor: "#EF3006",
+    textShadowColor: "#ef3006",
     textShadowRadius: 4,
     marginTop: 10,
   },
@@ -157,7 +159,6 @@ const styles = StyleSheet.create({
     width: "90%",
     height: 40,
     marginBottom: 10,
-    backgroundColor: "#fff",
   },
   baixo: {
     width: "100%",
@@ -165,4 +166,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-});
+  botaoAdc:{
+    flex: "start",
+    borderWidth: 1.3,
+    width: 250,
+    height: 40,
+    borderRadius: 5,
+    borderColor: "#EF3006",
+    marginBottom: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#fff",
+
+  },
+  textoBotao:{
+    color: "#EF3006",
+    fontSize: 18,
+  }
+  });
