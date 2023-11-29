@@ -137,12 +137,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   titulo: {
-    fontSize: 20,
+    fontSize: 25,
     color: "white",
     fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
     textShadowColor: "#ef3006",
     textShadowRadius: 4,
-    marginTop: 10,
+    marginTop: 50,
   },
   meio: {
     width: "100%",

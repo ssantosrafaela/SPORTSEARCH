@@ -8,7 +8,7 @@ export default function Evento(){
     return(
         <>
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={() => nav.navigate("DadosEventos")}>
+            <TouchableWithoutFeedback onPress={() => alert("vamo gremio")}>
             <View style={styles.boxEvento}>
                 <Text style={styles.texto}>Nome do Evento</Text>
                 <Text style={styles.texto}>Data do Evento</Text>
