@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, View, } from 'react-native';
 import { Ionicons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from 'expo-router';
 
-export default function Baixo(props){
+export default function Baixo(){
     const nav = useNavigation();
     return(
         <>

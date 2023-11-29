@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
   },
   buttonInside: {
     padding: 10,
-    justifyContent: "left",
+    //justifyContent: "left",
   },
 });
