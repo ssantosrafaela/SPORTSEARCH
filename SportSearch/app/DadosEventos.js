@@ -10,6 +10,7 @@ import { useNavigation } from "expo-router";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFonts } from "expo-font";
 import { KeyboardAvoidingView } from "react-native";
+import { addEventFirestore } from "../connections/firebase-store";
 
 export default function DadosEventos() {
   const nav = useNavigation();
@@ -17,100 +18,151 @@ export default function DadosEventos() {
   const [nome, setNome] = React.useState("");
   const [data, setData] = React.useState("");
   const [local, setLocal] = React.useState("");
-  const [descricao, setDescricao] = React.useState("");
+  const [observacoes, setObservacoes] = React.useState("");
   const [modalidade, setModalidade] = React.useState("");
   const [horario, setHorario] = React.useState("");
   const [vagas, setVagas] = React.useState("");
   const [valor, setValor] = React.useState("");
+  const [cidade, setCidade] = React.useState("");
+  const [estado, setEstado] = React.useState("");
+  const [atualPessoas, setAtualPessoas] = React.useState("");
 
   const [fontsLoaded] = useFonts({
     "Archivo_ExtraCondensed-BlackItalic.ttf": require("../assets/fonts/Archivo_ExtraCondensed-BlackItalic.ttf"),
     "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
 
+  const tryCreateEvent = async () => {
+      addEventFirestore(
+        nome,
+        local,
+        cidade,
+        estado,
+        horario,
+        data,
+        vagas,
+        atualPessoas,
+        valor,
+        observacoes
+      );
+      //await AsyncStorage.setItem('user', userCredential.user.uid);
+      }
+
   if (fontsLoaded) {
     return (
       <>
-        <ScrollView style={styles.scrollviewContainer}>
-          <View style={styles.container}>
-            <View style={styles.cima}>
-              <Text style={styles.titulo}>Insira os dados do seu Evento</Text>
-            </View>
+        <ScrollView>
+          <KeyboardAvoidingView
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
+          >
+            <View style={{ flex: 1 }}>
+              <View style={styles.container}>
+                <View style={styles.cima}>
+                  <Text style={styles.titulo}>
+                    Insira os dados do seu Evento
+                  </Text>
+                </View>
 
-            <View style={styles.meio}>
-              <Text style={styles.texto}>Nome do Evento</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Nome"
-                onChangeText={(text) => setNome(text)}
-                setValue={setNome}
-                value={nome}
-              />
-              <Text style={styles.texto}>Modalidade</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Modalidade"
-                onChangeText={(text) => setModalidade(text)}
-                setValue={setModalidade}
-                value={modalidade}
-              />
-              <Text style={styles.texto}>Vagas</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Vagas"
-                onChangeText={(text) => setVagas(text)}
-                setValue={setVagas}
-                value={vagas}
-              />
-              <Text style={styles.texto}>Data</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Data"
-                onChangeText={(text) => setData(text)}
-                setValue={setData}
-                value={data}
-              />
-              <Text style={styles.texto}>Local</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Local"
-                onChangeText={(text) => setLocal(text)}
-                setValue={setLocal}
-                value={local}
-              />
+                <View style={styles.meio}>
+                  <Text style={styles.texto}>Nome do Evento</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Nome"
+                    onChangeText={(text) => setNome(text)}
+                    setValue={setNome}
+                    value={nome}
+                  />
+                  <Text style={styles.texto}>Modalidade</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Modalidade"
+                    onChangeText={(text) => setModalidade(text)}
+                    setValue={setModalidade}
+                    value={modalidade}
+                  />
+                  <Text style={styles.texto}>Vagas</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Vagas"
+                    onChangeText={(text) => setVagas(text)}
+                    setValue={setVagas}
+                    value={vagas}
+                  />
+                   <Text style={styles.texto}>Atual Pessoas</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Atual Pessoas"
+                    onChangeText={(text) => setAtualPessoas(text)}
+                    setValue={setAtualPessoas}
+                    value={atualPessoas}
+                  />
+                   <Text style={styles.texto}>Estado</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Estado"
+                    onChangeText={(text) => setEstado(text)}
+                    setValue={setEstado}
+                    value={estado}
+                  />
+                   <Text style={styles.texto}>Cidade</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Cidade"
+                    onChangeText={(text) => setCidade(text)}
+                    setValue={setCidade}
+                    value={cidade}
+                  />
+                  <Text style={styles.texto}>Data</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Data"
+                    onChangeText={(text) => setData(text)}
+                    setValue={setData}
+                    value={data}
+                  />
+                  <Text style={styles.texto}>Local</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Local"
+                    onChangeText={(text) => setLocal(text)}
+                    setValue={setLocal}
+                    value={local}
+                  />
 
-              <Text style={styles.texto}>Horário</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Horário"
-                onChangeText={(text) => setHorario(text)}
-                setValue={setHorario}
-                value={horario}
-              />
-              <Text style={styles.texto}>Valor</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Valor"
-                onChangeText={(text) => setValor(text)}
-                setValue={setValor}
-                value={valor}
-              />
-              <Text style={styles.texto}>Descrição</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Descrição"
-                onChangeText={(text) => setDescricao(text)}
-                setValue={setDescricao}
-                value={descricao}
-              />
-            </View>
+                  <Text style={styles.texto}>Horário</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Horário"
+                    onChangeText={(text) => setHorario(text)}
+                    setValue={setHorario}
+                    value={horario}
+                  />
+                  <Text style={styles.texto}>Valor</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Valor"
+                    onChangeText={(text) => setValor(text)}
+                    setValue={setValor}
+                    value={valor}
+                  />
+                  <Text style={styles.texto}>Descrição</Text>
+                  <TextInput
+                    style={styles.input}
+                    placeholder="Observações"
+                    onChangeText={(text) => setObservacoes(text)}
+                    setValue={setObservacoes}
+                    value={observacoes}
+                  />
+                </View>
 
-            <View style={styles.baixo}>
-              <TouchableOpacity style={styles.botaoAdc}>
-                <Text style={styles.textoBotao}>Adicionar</Text>
-              </TouchableOpacity>
+                <View style={styles.baixo}>
+                  <TouchableOpacity style={styles.botaoAdc} onPress={() => {tryCreateEvent()}}>
+                    <Text style={styles.textoBotao}>Adicionar</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
-          </View>
+          </KeyboardAvoidingView>
         </ScrollView>
       </>
     );
@@ -182,5 +234,8 @@ const styles = StyleSheet.create({
   textoBotao: {
     color: "#EF3006",
     fontSize: 18,
+  },
+  key: {
+    backgroundColor: "green",
   },
 });

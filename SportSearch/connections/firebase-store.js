@@ -46,6 +46,7 @@ const addEventFirestore = async (
 ) => {
   const uid = auth.currentUser.uid;
   const data = {
+    uid: uid,
     nomeEvento: nomeEvento,
     localEvento: localEvento,
     cidade: cidade,
