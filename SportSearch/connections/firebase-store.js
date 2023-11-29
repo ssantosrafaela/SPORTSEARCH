@@ -31,6 +31,35 @@ const addUserFirestore = async (
   return await setDoc(doc(db, "users", uid), data);
 };
 
+// FUNCAO PARA ADD EVENTO NO FIRESTORE
+const addEventFirestore = async (
+  nomeEvento,
+  localEvento,
+  cidade,
+  estado,
+  horario,
+  dataEvento,
+  totalPessoas,
+  atualPessoas,
+  valor,
+  observacoes
+) => {
+  const uid = auth.currentUser.uid;
+  const data = {
+    nomeEvento: nomeEvento,
+    localEvento: localEvento,
+    cidade: cidade,
+    estado: estado,
+    horario: horario,
+    dataEvento: dataEvento,
+    totalPessoas: totalPessoas,
+    atualPessoas: atualPessoas,
+    valor: valor,
+    observacoes: observacoes,
+  };
+  return await addDoc(doc(db, "users", uid), data);
+};
+
 const getProfileFromUid = async (uia) => {
   const docRef = doc(db, "users", uia);
   const docSnap = await getDoc(docRef);
@@ -42,7 +71,7 @@ const getProfileFromUid = async (uia) => {
   }
 };
 
-export { addUserFirestore, getProfileFromUid };
+export { addUserFirestore, getProfileFromUid, addEventFirestore };
 
 // usuário oferecer esportes e poder participar de outros esportes oferecidos por outros usuários (ex: futebol, vôlei, basquete, etc).
 // O usuário poderá oferecer um esporte e definir o local, data e horário que ele será realizado.

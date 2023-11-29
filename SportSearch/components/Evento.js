@@ -8,12 +8,12 @@ export default function Evento(){
     return(
         <>
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={() => alert("participar evento")}>
+            <TouchableWithoutFeedback onPress={() => nav.navigate("DadosEventos")}>
             <View style={styles.boxEvento}>
                 <Text style={styles.texto}>Nome do Evento</Text>
                 <Text style={styles.texto}>Data do Evento</Text>
                 <Text style={styles.texto}>Local do Evento</Text>
-                
+
             </View> 
             </TouchableWithoutFeedback>
         </View>

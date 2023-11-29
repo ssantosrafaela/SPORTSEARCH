@@ -8,7 +8,7 @@ export default function Adiciona(props) {
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => alert("adicionou um evento")}>
+        <TouchableOpacity style={styles.button} onPress={() => nav.navigate("DadosEventos")}>
           <Entypo
             name="plus"
             size={40}
