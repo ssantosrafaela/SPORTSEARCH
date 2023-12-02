@@ -1,14 +1,29 @@
 {
   "expo": {
+    "splash": {
+      "image": "./assets/port.png",
+      "resizeMode": "cover"
+    },
     "scheme": "acme",
     "web": {
-      "bundler": "metro"
+      "bundler": "metro",
+      "build": {
+        "babel": {
+          "include": [
+            "@babel/plugin-proposal-optional-chaining"
+          ]
+        }
+      },
+      "favicon": "./assets/favicon.png"
     },
     "name": "SportSearch",
     "slug": "SportSearch",
       "assetBundlePatterns": [
         "assets/*"
       ]
+        
+
+
     }
     
   }

@@ -65,10 +65,28 @@ export default function Register() {
   };
 
   const [gnr, setGnr] = useState([
-    { label: "Feminino", value: "Feminino" },
-    { label: "Masculino", value: "Maculino" },
-    { label: "Outro", value: "Outro" },
+    { label: "Mulher Cis", value: "Mulher Cis" },
+    { label: "Mulher Trans", value: "Mulher Trans"},
+    { label: "Homem Cis", value: "Homem Cis" },
+    { label: "Homem Trans", value: "Homem Trans"},
+    { label: "Não-binário", value: "Não-binário" },
+    { label: "Prefiro não informar", value: "Prefiro não informar" },
+    { label: "Outro", value: "Outro" }, 
   ]);
+
+  const [ sexualidade, setSexualidade] = useState([
+    { label: "Heterossexual", value: "Heterossexual" },
+    { label: "Homossexual", value: "Homossexual"},
+    {label: "Lésbica", value: "Lésbica"},
+    { label: "Gay", value: "Gay"},
+    { label: "Bissexual", value: "Bissexual" },
+    { label: "Pansexual", value: "Pansexual"},
+    { label: "Assexual", value: "Assexual" },
+    { label: "Demissexual", value: "Demissexual" }, 
+    { label: "Prefiro não informar", value: "Prefiro não informar" },
+    { label: "Outro", value: "Outro" }, 
+  
+  ])
 
   const [selected, setSelected] = useState("");
   const data = [
@@ -178,7 +196,8 @@ export default function Register() {
                       setSelected={(e) => setGnr(e)}
                       data={gnr}
                       save="key"
-                      placeholder="Selecione seu gênero:"
+                      placeholder="Selecione sua identidade de gênero:"
+
                       placeholderTextColor={"#fff"}
                       dropdownStyles={{
                         width: 270,
@@ -194,7 +213,34 @@ export default function Register() {
                         marginBottom: 20,
                       }}
                       inputStyles={{ color: "white" }}
+                      
                     />
+                
+                  <SelectList
+                  value={sexualidade}
+                  setSelected={(e) => setSexualidade(e)}
+                  data={sexualidade}
+                  save="key"
+                  placeholder="Selecione sua sexualidade:"
+                  placeholderTextColor={"#fff"}
+                  dropdownStyles={{
+                    width: 270,
+                    //  height: 40,
+                    backgroundColor: "#fc4821",
+                    borderColor: "#EF3006",
+                    marginBottom: 20,
+                    color: "#fff",
+                    
+                  }}
+                  boxStyles={{
+                    width: 270,
+                    height: 45,
+                    borderColor: "#EF3006",
+                    marginBottom: 20,
+                    color: "#fff",
+                  }}
+                  inputStyles={{ color: "white" }}
+                />
 
                     <SelectList
                       value={data}
