@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, StyleSheet, Linking } from "react-native";
 import { useNavigation } from "expo-router";
 import { useFonts } from "expo-font";
 import Entrada from "../components/Entrada";
-//import styles from "../components/styles";
 import { SelectList } from "react-native-dropdown-select-list";
 import { ScrollView } from "react-native-gesture-handler";
 import { KeyboardAvoidingView } from "react-native";
@@ -24,12 +23,12 @@ export default function Register() {
     "Archivo_Condensed-SemiBoldItalic.ttf": require("../assets/fonts/Archivo_Condensed-SemiBoldItalic.ttf"),
   });
 
-  const [textNome, setNome] = useState("joao");
-  const [textSobrenome, setSobrenome] = useState("ribeiro");
-  const [textTelefone, setTelefone] = useState("53999916750");
+  const [textNome, setNome] = useState("");
+  const [textSobrenome, setSobrenome] = useState("");
+  const [textTelefone, setTelefone] = useState("");
   const [textEmail, setEmail] = useState("");
-  const [textPassword, setPassword] = useState("123456");
-  const [textConfPassword, setConfPassword] = useState("123456");
+  const [textPassword, setPassword] = useState("");
+  const [textConfPassword, setConfPassword] = useState("");
   const [hidePass, setHidePass] = useState(true);
   const [hideCPass, setHideCPass] = useState(true);
   
@@ -339,7 +338,11 @@ export default function Register() {
                         color="#EF3006"
                         style={styles.checkboxContainer}
                       />
-                      <Text style={styles.textCheck}>Aceito os termos de uso</Text>
+                      <Text
+                      style={styles.textCheck}
+                      onPress = {() => {
+                        Linking.openURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+                      }}>Aceitar os termos de uso</Text>
                       </View>
 
               <View style={styles.next}>
