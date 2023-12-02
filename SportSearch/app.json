@@ -1,8 +1,9 @@
 {
   "expo": {
     "splash": {
-      "image": "./assets/port.png",
-      "resizeMode": "cover"
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1D2F4D"
     },
     "scheme": "acme",
     "web": {

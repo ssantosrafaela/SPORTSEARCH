@@ -50,6 +50,7 @@ export default function Login() {
     console.log(auth.currentUser);
   };
 
+
   if (fontsLoaded) {
     return (
       <>
@@ -116,7 +117,9 @@ export default function Login() {
             </View>
 
             <View style={styles.baixo}>
-              <Text style={styles.textoBaixo}>Esqueceu a senha?</Text>
+              <Text 
+              style={styles.textoBaixo}
+              onPress = {() => nav.navigate("replacePass")}>Esqueceu a senha?</Text>
             </View>
           </KeyboardAvoidingView>
         </View>
