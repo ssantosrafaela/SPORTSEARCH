@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, Pressable} from 'react-native';
+import { Text, View, StyleSheet, Pressable, KeyboardAvoidingView} from 'react-native';
 import { useFonts } from "expo-font";  
 import { useNavigation } from 'expo-router'
 import { TextInput } from 'react-native-gesture-handler';
@@ -7,6 +7,7 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import { auth } from '../connections/firebase-auth';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ReplacePass(){
     const nav = useNavigation();    
@@ -36,6 +37,11 @@ export default function ReplacePass(){
 
     return(
             <View style={styles.container}>
+                 <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ backgroundColor: "#1D2F4D" }}
+          >
+            <SafeAreaView/>
                  <View style={styles.topBack}>
               <TouchableOpacity
                 onPress={() => nav.navigate("Login")}
@@ -46,7 +52,9 @@ export default function ReplacePass(){
             </View>
             <View style={styles.cima}>
                 <Text style={styles.formTitle}>Redefinição de Senha</Text>
+                <Text style={styles.subtitulo}>Insira seu email e confira a caixa de entrada!</Text>
                 </View>
+            <View style={styles.baixo}>    
                 <TextInput 
                 style={styles.formInput}
                  placeholder="Digite seu email" 
@@ -63,6 +71,8 @@ export default function ReplacePass(){
                     >
                         <Text style={styles.sendButtonText}>Enviar</Text>
                     </Pressable>
+                    </View>
+                    </KeyboardAvoidingView>
             </View>
     )
 }
@@ -90,7 +100,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         borderRadius:10,
-        marginTop:30,
+        marginTop:70,
         color:'#EF3006',
         borderColor:'#EF3006',
     },
@@ -108,25 +118,39 @@ const styles = StyleSheet.create({
         color:'#fff',
         paddingLeft:10,
         marginBottom:10,
-        marginTop:120,
     },
     back: {
-        JustifyContent: 'left',
-        alignItems: 'left',
-        backgroundColor: '#1D2F4D',
-        marginRight: 40,
-        paddingTop: 45,
-        paddingLeft: 10,
-    },
+        JustifyContent: "row",
+        alignItems: "left",
+        backgroundColor: "#1D2F4D",
+        paddingRight: 40,
+
+      },
      topBack:{
       backgroundColor: '#1D2F4D',
+   //     width: '100%',
      },
      cima:{
-        backgroundColor: 'red',
+        backgroundColor: '#1D2F4D',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 17,
         flex: 1,
-     }
+        paddingBottom: 20,
+     },
+     baixo:{
+        flex: 1.5,
+        backgroundColor: '#1D2F4D',
+        justifyContent: 'top',
+        alignItems: 'center',
+        width: '100%',
+     },
+     subtitulo: {
+        fontSize: 20,
+        color: "white",
+        fontFamily: "Archivo_Condensed-SemiBoldItalic.ttf",
+        textShadowColor: "#EF3006",
+        textShadowRadius: 4,
+        marginTop: 10,
+      },
 }) 
