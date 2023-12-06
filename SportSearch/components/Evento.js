@@ -56,10 +56,11 @@ const styles = StyleSheet.create({
     width: "85%",
     height: "25%",
     borderRadius: 15,
-    backgroundColor: "#EF3006",
+    backgroundColor: "#1d2f4d",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
+    borderColor: "#EF3006",
   },
   pessoas:{
     justifyContent:'flex-start',

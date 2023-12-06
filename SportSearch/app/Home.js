@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-
   KeyboardAvoidingView,
 } from "react-native";
 import { Ionicons, Feather, Entypo } from "@expo/vector-icons";
@@ -15,22 +14,20 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PesquisaTop from "../components/PesquisaTop";
 import Baixo from "../components/Baixo";
 import Adiciona from "../components/Adiciona";
-import Evento from '../components/Evento'
+import Evento from "../components/Evento";
 import { getEventos } from "../connections/firebase-store";
 
 export default function Home() {
-
- const fetchEventos = async() => {
-  const eventos = await getEventos()
-  console.log(eventos)
- }
+  const fetchEventos = async () => {
+    const eventos = await getEventos();
+    console.log(eventos);
+  };
 
   useEffect(() => {
-    console.log("entrou no useEffect")
-    fetchEventos()
-    console.log("saiu do useEffect")
-
-  },[])
+    console.log("entrou no useEffect");
+    fetchEventos();
+    console.log("saiu do useEffect");
+  }, []);
 
   const nav = useNavigation();
   const [fontsLoaded] = useFonts({
@@ -45,31 +42,31 @@ export default function Home() {
         behavior={Platform.OS == "ios" ? "padding" : "height"}
         style={styles.containerScrollView}
       >
-          <View style={styles.container}>
+        <View style={styles.container}>
+          <View style={styles.cima}>
+            <Text style={styles.titulo}>Página Inicial</Text>
+          </View>
 
-            <View style={styles.cima}>
-              <Text style={styles.titulo}>Página Inicial</Text>
-            </View>
-
-            <PesquisaTop 
+          <PesquisaTop
             text={"Nome"}
             label="Pesquisar"
             setValue={setPesquisa}
-            value={textPesquisa}/>
-          </View>
+            value={textPesquisa}
+          />
+        </View>
 
-      <Evento 
-      nomeEvento="teste"
-      atualPessoas={2}
-      totalPessoas={10}
-      localevento="teste"
-      valorEvento={10}
-       />
+        <Evento
+          nomeEvento="teste"
+          atualPessoas={2}
+          totalPessoas={10}
+          localevento="teste"
+          valorEvento={10}
+        />
 
-          <Adiciona />
-          <View style={styles.baixo}>
-            <Baixo />
-            </View>
+        <Adiciona />
+        <View style={styles.baixo}>
+          <Baixo />
+        </View>
       </KeyboardAvoidingView>
     );
   } else {
@@ -105,8 +102,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 4,
     marginTop: 10,
   },
-  baixo:{
-    backgroundColor: '#1D2F4D',
-  }
-  
+  baixo: {
+    backgroundColor: "#1D2F4D",
+  },
 });
