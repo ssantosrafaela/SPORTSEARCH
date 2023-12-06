@@ -59,10 +59,11 @@ export default function Home() {
           </View>
 
       <Evento 
-      nome="teste"
-      inscritos={2}
-      totalVagas={10}
-      local="teste"
+      nomeEvento="teste"
+      atualPessoas={2}
+      totalPessoas={10}
+      localevento="teste"
+      valorEvento={10}
        />
 
           <Adiciona />

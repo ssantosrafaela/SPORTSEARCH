@@ -22,15 +22,17 @@ export default function Evento(props) {
             
             <View style={styles.pessoas}>
               <Ionicons name="person" size={15} color="white" />
-              <Text>x/x</Text>
+              <Text>{props.atualPessoas}/{props.totalPessoas}</Text>
             </View>
 
             <View>
                 <MaterialIcons name = "place" size={15} color="white"/>
+                <Text>{props.localEvento}</Text>
             </View>
 
             <View>
                 <FontAwesome name="dollar" size={15} color="white"/>
+                <Text>{props.valorEvento}</Text>
             </View>
 
           </View>
