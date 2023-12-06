@@ -4,6 +4,7 @@ import {
   addDoc,
   setDoc,
   doc,
+  getDocs
 } from "firebase/firestore";
 import { auth } from "./firebase-auth";
 import { app } from "./firebase-app";
@@ -72,7 +73,20 @@ const getProfileFromUid = async (uia) => {
   }
 };
 
-export { addUserFirestore, getProfileFromUid, addEventFirestore };
+const getEventos = async () =>{
+  console.log("entrou no getEventos")
+  const querySnapshot = await getDocs(collection(db, "eventos"));
+  if (querySnapshot.empty) {
+    console.log("No matching documents.");
+    return;
+  }
+  console.log(querySnapshot)
+  listDocs = querySnapshot.docs.map((d) => d.data())
+  return listDocs;  
+}
+
+
+export { addUserFirestore, getProfileFromUid, addEventFirestore, getEventos };
 
 // usuário oferecer esportes e poder participar de outros esportes oferecidos por outros usuários (ex: futebol, vôlei, basquete, etc).
 // O usuário poderá oferecer um esporte e definir o local, data e horário que ele será realizado.

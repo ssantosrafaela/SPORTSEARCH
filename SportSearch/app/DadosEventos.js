@@ -101,12 +101,12 @@ export default function DadosEventos() {
                     </TouchableOpacity>
                   </View>
 
-                  <View style={styles.bordinha}>
                     <View style={styles.cima}>
                       <Text style={styles.titulo}>
                         Insira os dados do seu Evento
                       </Text>
                     </View>
+                  <View style={styles.bordinha}>
 
                     <View style={styles.meio}>
                       <View style={styles.tituloInput}>
@@ -136,15 +136,7 @@ export default function DadosEventos() {
                         setValue={setVagas}
                         value={vagas}
                       />
-                      <View style={styles.tituloInput}>
-                      <Text style={styles.texto}>Número atual de Pessoas:</Text>
-                      </View>
-                      <TInputEvento
-                        texto={"Atual Pessoas"}
-                        label={"Atual Pessoas"}
-                        setValue={setAtualPessoas}
-                        value={atualPessoas}
-                      />
+                    
                       <View style={styles.tituloInput}> 
                       <Text style={styles.texto}>Estado:</Text>
                       </View>

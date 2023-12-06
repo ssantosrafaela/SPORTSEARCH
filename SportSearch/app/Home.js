@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {
   View,
   Text,
@@ -16,8 +16,22 @@ import PesquisaTop from "../components/PesquisaTop";
 import Baixo from "../components/Baixo";
 import Adiciona from "../components/Adiciona";
 import Evento from '../components/Evento'
+import { getEventos } from "../connections/firebase-store";
 
 export default function Home() {
+
+ const fetchEventos = async() => {
+  const eventos = await getEventos()
+  console.log(eventos)
+ }
+
+  useEffect(() => {
+    console.log("entrou no useEffect")
+    fetchEventos()
+    console.log("saiu do useEffect")
+
+  },[])
+
   const nav = useNavigation();
   const [fontsLoaded] = useFonts({
     "Archivo_ExtraCondensed-BlackItalic.ttf": require("../assets/fonts/Archivo_ExtraCondensed-BlackItalic.ttf"),
@@ -43,7 +57,13 @@ export default function Home() {
             setValue={setPesquisa}
             value={textPesquisa}/>
           </View>
-      <Evento />
+
+      <Evento 
+      nome="teste"
+      inscritos={2}
+      totalVagas={10}
+      local="teste"
+       />
 
           <Adiciona />
           <View style={styles.baixo}>
