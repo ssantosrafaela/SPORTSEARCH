@@ -15,20 +15,20 @@ import TInputEvento from "../components/TInputEvento";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function DadosEventos(props) {
+export default function DadosEventos() {
   const nav = useNavigation();
 
-  const [nomeEvento, setNomeEvento] = React.useState("qaaa");
-  const [dataEvento, setDataEvento] = React.useState("aaaaaaa");
-  const [localEvento, setLocal] = React.useState("aaaaaaa");
+  const [nome, setNome] = React.useState("qaaa");
+  const [data, setData] = React.useState("aaaaaaa");
+  const [local, setLocal] = React.useState("aaaaaaa");
   const [observacoes, setObservacoes] = React.useState("aaaaaaaa");
   const [modalidade, setModalidade] = React.useState("aaaaaaaaa");
-  const [horarioEvento, setHorario] = React.useState("aaaaaaaaa");
-  const [valorEvento, setValor] = React.useState("aaaaaaaaaaaaa");
-  const [cidadeEvento, setCidade] = React.useState("aaaaa");
-  const [estadoEvento, setEstado] = React.useState("aaaaaaaaa");
+  const [horario, setHorario] = React.useState("aaaaaaaaa");
+  const [vagas, setVagas] = React.useState("aaaaaaaa");
+  const [valor, setValor] = React.useState("aaaaaaaaaaaaa");
+  const [cidade, setCidade] = React.useState("aaaaa");
+  const [estado, setEstado] = React.useState("aaaaaaaaa");
   const [atualPessoas, setAtualPessoas] = React.useState("aaaaaaaa");
-  const [totalPessoas, setTotalPessoas] = React.useState("aaaaaaaa");
 
   const [selected, setSelected] = React.useState("");
   const state = [
@@ -68,15 +68,15 @@ export default function DadosEventos(props) {
 
   const tryCreateEvent = async () => {
     addEventFirestore(
-      nomeEvento,
-      localEvento,
-      cidadeEvento,
-      estadoEvento,
-      horarioEvento,
-      dataEvento,
-      totalPessoas,
+      nome,
+      local,
+      cidade,
+      estado,
+      horario,
+      data,
+      vagas,
       atualPessoas,
-      valorEvento,
+      valor,
       observacoes
     );
     //await AsyncStorage.setItem('user', userCredential.user.uid);
@@ -115,8 +115,8 @@ export default function DadosEventos(props) {
                       <TInputEvento
                         texto={"Nome"}
                         label={"Nome do Evento"}
-                        setValue={setNomeEvento}
-                        value={nomeEvento}
+                        setValue={setNome}
+                        value={nome}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Modalidade:</Text>
@@ -134,7 +134,7 @@ export default function DadosEventos(props) {
                         texto={"Vagas"}
                         label={"Vagas"}
                         setValue={setVagas}
-                        value={totalPessoas}
+                        value={vagas}
                       />
                     
                       <View style={styles.tituloInput}> 
@@ -144,7 +144,7 @@ export default function DadosEventos(props) {
                         texto={"Estado"}
                         label={"Estado"}
                         setValue={setEstado}
-                        value={estadoEvento}
+                        value={estado}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Cidade:</Text>
@@ -153,7 +153,7 @@ export default function DadosEventos(props) {
                         texto={"Cidade"}
                         label={"Cidade"}
                         setValue={setCidade}
-                        value={cidadeEvento}
+                        value={cidade}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Local:</Text>
@@ -162,7 +162,7 @@ export default function DadosEventos(props) {
                         texto={"Local"}
                         label={"Local"}
                         setValue={setLocal}
-                        value={localEvento}
+                        value={local}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Data:</Text>
@@ -171,7 +171,7 @@ export default function DadosEventos(props) {
                         texto={"Data"}
                         label={"Data"}
                         setValue={setData}
-                        value={dataEvento}
+                        value={data}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Horário:</Text>
@@ -180,7 +180,7 @@ export default function DadosEventos(props) {
                         texto={"Horário"}
                         label={"Horário"}
                         setValue={setHorario}
-                        value={horarioEvento}
+                        value={horario}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Valor:</Text>
@@ -189,7 +189,7 @@ export default function DadosEventos(props) {
                         texto={"Valor"}
                         label={"Valor"}
                         setValue={setValor}
-                        value={valorEvento}
+                        value={valor}
                       />
                       <View style={styles.tituloInput}>
                       <Text style={styles.texto}>Observações:</Text>
