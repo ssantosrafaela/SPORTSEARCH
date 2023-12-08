@@ -18,6 +18,8 @@ import {
   signOutFirebase,
 } from "../connections/firebase-auth";
 
+import "expo-dev-client";
+
 export default function Login() {
   const nav = useNavigation();
 

@@ -3,7 +3,14 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1D2F4D"
+      "backgroundColor": "#1D2F4D",
+      "plugins": ["@react-native-google-signin/google-signin"],
+      "android": {
+        "googleServicesFile": "./google-services.json"
+      },
+      "ios": {
+        "googleServicesFile": "./GoogleService-Info.plist"
+      }
     },
     "scheme": "acme",
     "web": {
